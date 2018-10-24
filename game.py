@@ -2,17 +2,22 @@
 #Purpose: Project 2 for OMIS30, create a blackjack simulator
 #Date: October 24, 2018
 
-#import random library
+#import libraries
 import random
 import collections
-
-#deck of cards
+import itertools
+#deck of cards with 6 decks within it
 suits= ("H","D","C","S")
 cardvalues= ("A","2","3","4","5","6","7","8","9","10","J","Q","K")
-deck_of_cards=[]
+deck=[]
 for cardvalue in cardvalues:
     for suit in suits:
-        deck_of_cards.append(cardvalue + suit) 
+        deck.append(cardvalue + suit) 
+deck_1= []      
+for i in deck:  
+    b=6*[i]        #make loop for number of decks you want in one large deck
+    deck_1.extend([b]) #create correct number of cards but each card type in own list
+deck_of_cards=list(itertools.chain.from_iterable(deck_1)) #flatten all lists of cards to make one big list with all cards
 
 
 #Create a list of drawn cards
