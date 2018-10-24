@@ -6,8 +6,8 @@ ListOfBets = []
 
 current_player = 1
 
-for i in range(1, len(int((number_of_players)+1))):
-        print("Hi Player " + current_player)
+for i in number_of_players:
+        print("Hi Player " + str(current_player))
         bet = input('What is your bet?')
         ListOfBets[current_player] = bet
         current_player+=1
