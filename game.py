@@ -23,7 +23,7 @@ deck_of_cards=list(itertools.chain.from_iterable(deck_1)) #flatten all lists of 
 #Create a list of drawn cards
 #ending_cards= []
 
-#Welcome user
+#Welcome user Tanner
 print("Welcome to Blackjack! Your cards have been dealt.")
 #Deal cards
 user_hand=[]
