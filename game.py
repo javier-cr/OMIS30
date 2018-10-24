@@ -7,8 +7,8 @@ import random
 import collections
 import itertools
 #deck of cards with 6 decks within it
-suits= ("H","D","C","S")
-cardvalues= ("A","2","3","4","5","6","7","8","9","10","J","Q","K")
+suits= ("Heart","Diamonds","Clubs","Spades")
+cardvalues= ("A","2","3","4","5","6","7","8","9","10","Jack","Queen","King")
 deck=[]
 for cardvalue in cardvalues:
     for suit in suits:
@@ -24,7 +24,7 @@ deck_of_cards=list(itertools.chain.from_iterable(deck_1)) #flatten all lists of 
 #ending_cards= []
 
 #Welcome user
-print("Welcome to Blackjack! Your cards have been dealt.")
+print("Welcome to Blackjack! Your cards have been dealt.\n")
 #Deal cards
 user_hand=[]
 dealer_hand=[]
