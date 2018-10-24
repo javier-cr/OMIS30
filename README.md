@@ -1,6 +1,2 @@
 # Blackjack
-# Blackjack
-
-Hello, world. This is the fourth line.
-
-hey
+This is a game of blackjack created for a Python class.
