@@ -120,8 +120,9 @@ print(color.BOLD + "\nThanks for that information. You have been dealt\
 #current_player = 1
 
 #Deal cards if users want to play again
-play_again = ""
-while play_again!= "exit" or play_again!= "Exit":
+doLoop = True
+#play_again = ""
+while doLoop:
     #Create a player's hand  (maybe loop to create mulitple players??)
     card_1= new_card(deck_of_six)
     card_2= new_card(deck_of_six)
@@ -163,10 +164,19 @@ while play_again!= "exit" or play_again!= "Exit":
             print("You and the Dealer both have Blackjack so you push and tie!")
             play_again = input("Would you like to play another hand? Or you can\
              type exit to leave\n")
+            if play_again == "exit":
+                break
+            else: 
+                pass
         else:
             print("You win!")
             play_again = input("Would you like to play another hand? Or you can\
              type exit to leave\n")
+            if play_again == "exit":
+                break
+            else: 
+                pass
+
 
     else:
         while value_hand < 21:
@@ -236,3 +246,7 @@ while play_again!= "exit" or play_again!= "Exit":
                     print("The Dealer has a higher hand than you. You lose!")
                 break
         play_again= input("Would you like to play another hand? Or you can type exit to leave\n")
+        if play_again == "exit":
+            break
+        else: 
+            pass
