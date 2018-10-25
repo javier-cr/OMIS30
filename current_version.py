@@ -9,7 +9,7 @@ import os
 
 
 # ****************************************************************************
-# BEGIN FUNCTIONS FOR GENERAL USE (below)
+# BEGIN FUNCTIONS FOR GENERAL USE (below)...
 # ****************************************************************************
 
 #define a function for a deck of cards with 6 decks within it
@@ -90,38 +90,15 @@ print(color.BOLD + color.BLUE + "Welcome to Blackjack!\n" + color.GREEN + "  \
   .... Created by Tanner, Chris, & Javi.\n" + color.END + color.BOLD + "\nNow,\
  let's get started.\n" + color.END)
 
-
-# COLLECT # OF USERS & VALIDATE
-'''while True: #validate input
-    number_of_players = input("How many people are playing? ")
-    if number_of_players.isdigit() and int(number_of_players) > 0:
-        break
-    else:
-        continue'''
-
-# CREATE LIST OF BETS & CURRENT PLAYER TRACKER-var
-'''print(color.BOLD,"\nGot it." + color.END, "Now, we'll collect bets.\n")
-ListOfBets = [] # Create list in which bets will appear
-ListOfBets.insert(0,0) # Assign dealer in position 0, $0 to start off with
-current_player = 1   # Establish starting position'''
-
-
 # COLLECT BETS
-# Start with dealer (0) and go until number of entered players
-#for i in range (0,int(number_of_players)): 
-bet = int(input("What is your bet? ")) # Take in bet input
-        #ListOfBets.insert(current_player,bet) # Add bet to list of bets
-        #current_player+=1 # move on to next player        
-
+bet = int(input("What is your bet? ")) # Take in bet input    
 
 # START THE GAME
 print(color.BOLD + "\nThanks for that information. You have been dealt\
  a hand. " + color.END + "\n")
-#current_player = 1
-
-#Deal cards if users want to play again
+ 
+# DEAL CARDS
 doLoop = True
-#play_again = ""
 while doLoop:
     #Create a player's hand  (maybe loop to create mulitple players??)
     card_1= new_card(deck_of_six)
@@ -131,11 +108,7 @@ while doLoop:
     #turn String of card1 into int. Check for ace and 10
     value_1= value_of_card(card_1) 
     value_2= value_of_card(card_2)
-    # DEBUG CODE:
-    print ("\n@168 Value 1 is: " + str(value_1) + "\n")
-    print ("@169 Value 2 is: " + str(value_2) + "\n")
     
-    # END DEBUG CODE
     global value_hand
     value_hand= value_1 + value_2 # PROBLEMATIC LINE
     print ("\n@174 Value Hand is: " + str(value_hand) + "\n")
@@ -183,12 +156,7 @@ while doLoop:
             user_input= input("Would you like to hit or stand? \n")
             if user_input== "hit" or user_input=="Hit":
                 card_3= new_card(deck_of_six) # we get a fresh, random card from the deck
-                value_3= value_of_card(card_3) #
-                # DEBUG CODE:
-                print ("\n@212 Value 3 is: " + str(value_3) + "\n")
-                print ("@213 Value Hand is: " + str(value_hand) + "\n")
-                # END DEBUG CODE
-
+                value_3= value_of_card(card_3) 
                 value_hand += value_3 # this always line always breaks
                 print("\nYou are dealt a " + card_3 + " for a total of "\
                  + str(value_hand) + ".")
