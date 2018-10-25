@@ -5,6 +5,7 @@
 #import libraries
 import random
 import itertools
+from sys import platform as _platform
 import os
 #define a function for a deck of cards with 6 decks within it
 def deck_of_cards():
@@ -53,28 +54,70 @@ def value_of_card(card):
 #give a new card and remove card from original list                 
 def new_card(deck_of_six):   
     return deck_of_six.pop(0)      
-'''
-# INTRO: Welcome to Blackjack!
-os.system('clear') # clear terminal
-print("\nWelcome to Blackjack!\n    .... Created by Tanner, Chris, & Javi.\n")
-number_of_players = input('How many people are playing? ')
-print("\nGreat! Let's get started.")
-ListOfBets = []   #Create list in which bets will appear
+
+#allow us to change text color
+class color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
+
+
+# ****************************************************************************
+# BEGIN USER-FACING CODE (below)
+# ****************************************************************************
+
+
+# Detect OS to clear terminal window
+if _platform == "linux" or _platform == "linux2" or _platform == "darwin":
+    os.system('clear') # clear terminal
+elif _platform == "win32" or _platform == "win64":
+    os.system('cls') # clear cmd or ps
+else:
+    pass # or do nothing
+
+# INTRO: Welcome to Blackjack!  
+print(color.BOLD + color.BLUE + "Welcome to Blackjack!\n" + color.GREEN + "  \
+  .... Created by Tanner, Chris, & Javi.\n" + color.END + color.BOLD + "\nNow,\
+ let's get started.\n" + color.END)
+
+# Collect player count
+while True: #validate input
+    number_of_players = input("How many people are playing? ")
+    if number_of_players.isdigit() and int(number_of_players) > 0:
+        break
+    else:
+        continue
+
+print(color.BOLD,"\nGot it,", number_of_players, "people will be playing.",\
+color.END, "Now, we'll collect bets.\n")
+
+ListOfBets = [] # Create list in which bets will appear
 ListOfBets.insert(0,0) # Assign dealer in position 0, $0 to start off with
 
-current_player = 1   #Establish starting position
+current_player = 1   # Establish starting position
 
-for i in range (0,int(number_of_players)): #Start with dealer (0) and go until number of entered players
-        print("\nPlayer " + str(current_player))
-        bet = int(input('PlayerWhat is your bet? '))    #Take bet
+for i in range (0,int(number_of_players)): # Start with dealer (0) and go until number of entered players
+        bet = int(input("Player " + (str(current_player)) + ", what is your bet? "))   #Take bet
         ListOfBets.insert(current_player,bet) # Add bet to list of bets
-        current_player+=1
+        current_player+=1 # move on to next player        
 
-#Diagnostic data, remove when finished
+print("\nThanks for that information.\n Each player has been dealt a hand.\
+We'll start with Player 1.\n")
+
+'''#Diagnostic data, remove when finished
 print("\nList of bets list: " + str(ListOfBets))
 print("Current player: " + str(current_player))
 print("Number of players: " + str(number_of_players))
-print("Iteration number of loop: " + str(i))'''
+print("Iteration number of loop: " + str(i))
+'''
+
 #Deal cards if users want to play again
 play_again = ""
 while play_again!= "exit" or play_again!= "Exit":
