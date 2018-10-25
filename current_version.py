@@ -15,7 +15,7 @@ import os
 #define a function for a deck of cards with 6 decks within it
 def deck_of_cards():
     suits= ("Hearts","Diamonds","Clubs","Spades")
-    cardvalues= ("A","2","3","4","5","6","7","8","9","10","Jack","Queen","King")
+    cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
     deck=[]
     for cardvalue in cardvalues:
         for suit in suits:
@@ -32,33 +32,30 @@ def deck_of_cards():
 
 #create a deck that can be popped and used repeatedly until runs out of cards.
 deck_of_six=deck_of_cards()   
-cardvalues= ("A","2","3","4","5","6","7","8","9","10","Jack","Queen","King")
+cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
  #            0   1   2   3   4   5   6   7   8    9   10      11      12
 
 #Function for providing integer value for cards dealt
 def value_of_card(card):
-    #turn strings of values into integers for cards that equal 10 for the game.
     if card[0] in cardvalues[9:12+1]: # if card is a 10 or J/Q/K
         return int(10)
-    #turn strings of values into integers for strait numbers 2 thru 9 for the game.
     elif card[0] in cardvalues[1:9]: # if card is a #
         return int(card[0])
-    #turn strings of values into integres for Ace. Allow player to use ace as an 11 or 1.
     elif card[0] == "A": # if card is a Ace
         #create value_hand list with total value of cards. If over 11 with ace in it, 
         # then ace has to be a 1
         if value_hand >= 11:
             return int(1)
         elif value_hand < 11:
-            ace_choice = input("Would you like to treat the Ace as a 1 or 11?")
-            if ace_choice == 1:
+            ace_choice = input("You drew an Ace. Would you like to treat the Ace as a 1 or 11? ")
+            if ace_choice == '1':
                 return int(1)
-            elif ace_choice == 11:
+            elif ace_choice == '11':
                 return int(11)
             else:
                 return int(999999)
         elif value_hand == 0:
-            ace_choice = input("Would you like to treat the Ace as a 1 or 11?")
+            ace_choice = input("You drew an Ace. Would you like to treat the Ace as a 1 or 11? ")
         else: return int(999999)
 
 
@@ -170,7 +167,13 @@ while play_again!= "exit" or play_again!= "Exit":
     #turn String of card1 into int. Check for ace and 10
     value_1= value_of_card(card_1) 
     value_2= value_of_card(card_2)
+    # DEBUG CODE:
+    print ("@174 Value 1 is: " + str(value_1) + "\n")
+    print ("@175 Value 2 is: " + str(value_2) + "\n")
+    
+    # END DEBUG CODE
     value_hand= value_1 + value_2 # PROBLEMATIC LINE
+    print ("@176 Value Hand is: " + str(value_hand) + "\n")
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
      color.END + "\n")
 
@@ -205,8 +208,13 @@ while play_again!= "exit" or play_again!= "Exit":
         while value_hand < 21:
             user_input= input("Would you like to hit or stand? \n")
             if user_input== "hit" or user_input=="Hit":
-                card_3= new_card(deck_of_six)
-                value_3= value_of_card(card_3)
+                card_3= new_card(deck_of_six) # we get a fresh, random card from the deck
+                value_3= value_of_card(card_3) #
+                # DEBUG CODE:
+                print ("@217 Value 3 is: " + str(value_3) + "\n")
+                print ("@218 Value Hand is: " + str(value_hand) + "\n")
+                # END DEBUG CODE
+
                 value_hand += value_3 # this always line always breaks
                 print("\nYou are dealt a " + card_3 + " for a total of "\
                  + str(value_hand) + ".")
