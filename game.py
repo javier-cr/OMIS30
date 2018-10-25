@@ -21,6 +21,7 @@ deck_of_cards=list(itertools.chain.from_iterable(deck_1)) #flatten all lists of 
 
 print(deck_of_cards)
 
+
 #Create a list of drawn cards
 #ending_cards= []
 
