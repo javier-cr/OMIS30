@@ -126,34 +126,32 @@ print(color.BOLD + color.BLUE + "Welcome to Blackjack!\n" + color.GREEN + "  \
 
 
 # COLLECT # OF USERS & VALIDATE
-while True: #validate input
+'''while True: #validate input
     number_of_players = input("How many people are playing? ")
     if number_of_players.isdigit() and int(number_of_players) > 0:
         break
     else:
-        continue
+        continue'''
 
 # CREATE LIST OF BETS & CURRENT PLAYER TRACKER-var
-print(color.BOLD,"\nGot it,", number_of_players, "people will be playing.",\
-color.END, "Now, we'll collect bets.\n")
+'''print(color.BOLD,"\nGot it." + color.END, "Now, we'll collect bets.\n")
 ListOfBets = [] # Create list in which bets will appear
 ListOfBets.insert(0,0) # Assign dealer in position 0, $0 to start off with
-current_player = 1   # Establish starting position
+current_player = 1   # Establish starting position'''
 
 
 # COLLECT BETS
 # Start with dealer (0) and go until number of entered players
-for i in range (0,int(number_of_players)): 
-        bet = int(input("Player " + (str(current_player)) + ", what is your\
- bet? ")) # Take in bet input
-        ListOfBets.insert(current_player,bet) # Add bet to list of bets
-        current_player+=1 # move on to next player        
+#for i in range (0,int(number_of_players)): 
+bet = int(input("What is your bet? ")) # Take in bet input
+        #ListOfBets.insert(current_player,bet) # Add bet to list of bets
+        #current_player+=1 # move on to next player        
 
 
 # START THE GAME
-print(color.BOLD + "\nThanks for that information. Each player has been dealt\
- a hand. " + color.END + "We'll start with Player 1.\n")
-current_player = 1
+print(color.BOLD + "\nThanks for that information. You have been dealt\
+ a hand. " + color.END + "\n")
+#current_player = 1
 
 #Deal cards if users want to play again
 play_again = ""
@@ -172,7 +170,7 @@ while play_again!= "exit" or play_again!= "Exit":
     
     # END DEBUG CODE
     global value_hand
-    value_hand= value_1 + value_2 # PROBLEMATIC LINE
+    value_hand= int(value_1) + int(value_2) # PROBLEMATIC LINE
     print ("@176 Value Hand is: " + str(value_hand) + "\n")
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
      color.END + "\n")
