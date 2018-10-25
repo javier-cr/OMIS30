@@ -110,8 +110,7 @@ while doLoop:
     value_2= value_of_card(card_2)
     
     global value_hand
-    value_hand= value_1 + value_2 # PROBLEMATIC LINE
-    print ("\n@174 Value Hand is: " + str(value_hand) + "\n")
+    value_hand= value_1 + value_2
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
      color.END + "\n")
 
@@ -152,98 +151,199 @@ while doLoop:
             else: 
                 pass
 
-
-    else:
-        while value_hand < 21:
-            user_input= input("Would you like to hit or stand? \n")
-            if user_input== "hit" or user_input=="Hit":
-                card_3= new_card(deck_of_six) # we get a fresh, random card from the deck
-                value_3= value_of_card(card_3) 
-                value_hand += value_3 # this always line always breaks
-                print("\nYou are dealt a " + card_3 + " for a total of "\
+    
+    else: # if amount DOESN'T equal 21...
+        while True: # = True...
+            if value_hand < 21:
+                user_Choice = input("Would you like to hit or stand? Enter hit or stand. ")
+                
+                if user_Choice == "hit" or user_Choice == "Hit":
+                    deciding_Card = new_card(deck_of_six) # we get a new card from the combined deck
+                    deciding_Card_Value = value_of_card(deciding_Card)
+                    value_hand += deciding_Card_Value
+                    print("\nYou were dealt a " + deciding_Card + " for a total of "\
                  + str(value_hand) + ".")
-
-                if value_hand > 21:
-                    print("\nYou busted; therefore, you lose this hand.")
-                    bet = 0
-                elif value_hand < 21:
-                    user_input= input("Would you like to hit or stand? \n")
-                    if user_input== "hit" or user_input=="Hit":
-                        card_4 = new_card(deck_of_six)
-                        value_4 = value_of_card(card_4)
-                        value_hand += value_4
-                        print("\nYou are dealt a " + card_4 + " for a total of "\
-                        + str(value_hand) + ".")
-                    elif user_input == "stand" or user_input == "Stand":
-                        pass
-                    if value_hand > 21:
-                        print("\nYou busted; therefore, you lose this hand.")
-                        bet = 0
-                    elif value_hand < 21:
-                        user_input= input("Would you like to hit or stand? \n")
-                        if user_input== "hit" or user_input=="Hit":
-                            card_5 = new_card(deck_of_six)
-                            value_5 = value_of_card(card_5)
-                            value_hand += value_5
-                            print("\nYou are dealt a " + card_5 + " for a total of "\
-                            + str(value_hand) + ".")
-                        elif user_input == "stand" or user_input == "Stand":
-                            pass
-                if value_hand > 21:
-                    print("\nYou busted; therefore, you lose this hand.")
-                    bet = 0 # player loses bet
-                else:
-                    print("The Dealer reveals his face down card to be a "\
-                    + dealer_card_2 + " for a total of " + str(dealer_value_hand) + ".")
-            
-                    while dealer_value_hand < 17:
-                        print("The Dealer must hit.")
-                        dealer_card_3= new_card(deck_of_six)
-                        dealer_value_3= value_of_card(dealer_card_3)
-                        dealer_value_hand+= dealer_value_3
-                        print("The Dealer drew a " + dealer_card_3 + " for a total of "\
-                        + str(dealer_value_hand)+ ".")
-                        if dealer_value_hand > 21 and value_hand <= 21:
-                            print("The Dealer busted... You win!")
-                        elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
-                            print("The Dealer has a higher hand than you. You lose!")
-                        else:
-                            continue
-
-                    if dealer_value_hand == value_hand:
-                        print("There is a push. Player and Dealer tie.")
-                    elif dealer_value_hand < value_hand:
-                        print("You have a higher hand than the Dealer. You win!")
-                    else:
-                        print("The Dealer has a higher hand than you. You lose!")
-
-            elif user_input== "stand" or user_input== "Stand":
-                print("The Dealer reveals his face down card to be a " +\
-                dealer_card_2 + " for a total of " + str(dealer_value_hand) + ".")
-                
-                if dealer_value_hand < 17:
-                    print("The Dealer must hit.")
-                    dealer_card_3= new_card(deck_of_six)
-                    dealer_value_3= value_of_card(dealer_card_3)
-                    dealer_value_hand+= dealer_value_3
-                    print("The Dealer drew a " + dealer_card_3 + " for a total of " + str(dealer_value_hand)+ ".")
                     
-                    if dealer_value_hand > 21 and value_hand <= 21:
-                        print("The Dealer busted... You win!")
-                    elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
-                        print("The Dealer has a higher hand than you. You lose!")
-                    else:
-                        continue
+                    if value_hand > 21:
+                        print ("Your hand is over 21. You busted!")
+                        play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
+                        if play_again == "exit":
+                            break
+                        else: 
+                            pass
+                    elif value_hand == 21:
+                        print ("You got a Blackjack, you win!")
+                        play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
+                        if play_again == "exit":
+                            break
+                        else: pass
+            
+                elif user_Choice == "stand" or user_Choice == "Stand":
+                    while True: 
+                        if dealer_value_hand < 17:
+                            print("The dealer's hand equals less than 17, so they must hit.", end=" ")
+                            
+                            deciding_Card_Dealer = new_card(deck_of_six) # we get a new card from the combined deck
+                            deciding_Card_Dealer_Value = value_of_card(deciding_Card_Dealer)
+                            dealer_value_hand += deciding_Card_Dealer_Value
+                            print("The dealer was dealt a " + deciding_Card_Dealer + " for a total of " +\
+                         str(dealer_value_hand) + ".")
+                        
+                        
+                        elif dealer_value_hand >16 and dealer_value_hand <21:
+                            #if value is 1-21 
+                            if dealer_value_hand > value_hand:
+                                print("You lose. The dealer wins!\n")
+                                play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
+                                if play_again == "exit":
+                                    break
+                                else: pass
+                            elif dealer_value_hand < value_hand:
+                                print("You win! Collect your money!")
+                                play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
+                                if play_again == "exit":
+                                    break
+                                else: pass
+                            elif dealer_value_hand == value_hand:
+                                print('You and the dealer tie! Collect the money you bet')
+                                play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
+                                if play_again == "exit":
+                                    break
+                                else: pass
+                        elif dealer_value_hand > 21:
+                            print('The dealer busted! You Win')
+                            play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
+                            if play_again == "exit":
+                                break
+                            else: pass
+
+            
                 
-                elif dealer_value_hand == value_hand:
-                    print("There is a push. Player and Dealer tie.")
-                elif dealer_value_hand < value_hand:
-                    print("You have a higher hand than the Dealer. You win!")
-                else:
-                    print("The Dealer has a higher hand than you. You lose!")
-                break
-        play_again= input("Would you like to play another hand? Or you can type exit to leave\n")
-        if play_again == "exit":
-            break
-        else: 
-            pass
+
+
+
+# elif user_Choice == "stand" or "Stand": # user walks away from game
+#                      while dealer_value_hand < 17:
+#                         print("The dealer's hand equals less than 17, so they must hit.", end=" ")
+                        
+#                         deciding_Card_Dealer = new_card(deck_of_six) # we get a new card from the combined deck
+#                         deciding_Card_Dealer_Value = value_of_card(deciding_Card_Dealer)
+#                         dealer_value_hand += deciding_Card_Dealer_Value
+#                         print("The dealer was dealt a " + deciding_Card_Dealer + " for a total of " +\
+#                          str(dealer_value_hand) + ".")
+
+
+
+                        
+#                         dealer_card_3= new_card(deck_of_six)
+#                         dealer_value_3= value_of_card(dealer_card_3)
+#                         dealer_value_hand+= dealer_value_3
+#                         print("The Dealer drew a " + dealer_card_3 + " for a total of "\
+#                         + str(dealer_value_hand)+ ".")
+#                         if dealer_value_hand > 21 and value_hand <= 21:
+#                             print("The Dealer busted... You win!")
+#                         elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
+#                             print("The Dealer has a higher hand than you. You lose!")
+#                         else:
+#                             continue
+
+
+
+
+#             user_input= input("Would you like to hit or stand? \n")
+#             if user_input== "hit" or user_input=="Hit":
+#                 card_3= new_card(deck_of_six) # we get a fresh, random card from the deck
+#                 value_3= value_of_card(card_3) 
+#                 value_hand += value_3 # this always line always breaks
+#                 print("\nYou are dealt a " + card_3 + " for a total of "\
+#                  + str(value_hand) + ".")
+
+#             elif
+# #new code begins here'''
+# '''
+#                 if value_hand > 21:
+#                     print("\nYou busted; therefore, you lose this hand.")
+#                     bet = 0
+#                 elif value_hand < 21:
+#                     user_input= input("Would you like to hit or stand? \n")
+#                     if user_input== "hit" or user_input=="Hit":
+#                         card_4 = new_card(deck_of_six)
+#                         value_4 = value_of_card(card_4)
+#                         value_hand += value_4
+#                         print("\nYou are dealt a " + card_4 + " for a total of "\
+#                         + str(value_hand) + ".")
+#                     elif user_input == "stand" or user_input == "Stand":
+#                         pass
+#                     if value_hand > 21:
+#                         print("\nYou busted; therefore, you lose this hand.")
+#                         bet = 0
+#                     elif value_hand < 21:
+#                         user_input= input("Would you like to hit or stand? \n")
+#                         if user_input== "hit" or user_input=="Hit":
+#                             card_5 = new_card(deck_of_six)
+#                             value_5 = value_of_card(card_5)
+#                             value_hand += value_5
+#                             print("\nYou are dealt a " + card_5 + " for a total of "\
+#                             + str(value_hand) + ".")
+#                         elif user_input == "stand" or user_input == "Stand":
+#                             pass
+                            
+
+#                 if value_hand > 21:
+#                     print("\nYou busted; therefore, you lose this hand.")
+#                     bet = 0 # player loses bet
+#                 else:
+#                     print("The Dealer reveals his face down card to be a "\
+#                     + dealer_card_2 + " for a total of " + str(dealer_value_hand) + ".")
+            
+#                     while dealer_value_hand < 17:
+#                         print("The Dealer must hit.")
+#                         dealer_card_3= new_card(deck_of_six)
+#                         dealer_value_3= value_of_card(dealer_card_3)
+#                         dealer_value_hand+= dealer_value_3
+#                         print("The Dealer drew a " + dealer_card_3 + " for a total of "\
+#                         + str(dealer_value_hand)+ ".")
+#                         if dealer_value_hand > 21 and value_hand <= 21:
+#                             print("The Dealer busted... You win!")
+#                         elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
+#                             print("The Dealer has a higher hand than you. You lose!")
+#                         else:
+#                             continue
+
+#                     if dealer_value_hand == value_hand:
+#                         print("There is a push. Player and Dealer tie.")
+#                     elif dealer_value_hand < value_hand:
+#                         print("You have a higher hand than the Dealer. You win!")
+#                     else:
+#                         print("The Dealer has a higher hand than you. You lose!")
+
+#             elif user_input== "stand" or user_input== "Stand":
+#                 print("The Dealer reveals his face down card to be a " +\
+#                 dealer_card_2 + " for a total of " + str(dealer_value_hand) + ".")
+                
+#                 if dealer_value_hand < 17:
+#                     print("The Dealer must hit.")
+#                     dealer_card_3= new_card(deck_of_six)
+#                     dealer_value_3= value_of_card(dealer_card_3)
+#                     dealer_value_hand+= dealer_value_3
+#                     print("The Dealer drew a " + dealer_card_3 + " for a total of " + str(dealer_value_hand)+ ".")
+                    
+#                     if dealer_value_hand > 21 and value_hand <= 21:
+#                         print("The Dealer busted... You win!")
+#                     elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
+#                         print("The Dealer has a higher hand than you. You lose!")
+#                     else:
+#                         continue
+                
+#                 elif dealer_value_hand == value_hand:
+#                     print("There is a push. Player and Dealer tie.")
+#                 elif dealer_value_hand < value_hand:
+#                     print("You have a higher hand than the Dealer. You win!")
+#                 else:
+#                     print("The Dealer has a higher hand than you. You lose!")
+#                 break
+#         play_again= input("Would you like to play another hand? Or you can type exit to leave\n")
+#         if play_again == "exit":
+#             break
+#         else: 
+#             pass

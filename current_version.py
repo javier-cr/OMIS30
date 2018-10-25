@@ -43,14 +43,14 @@ def value_of_card(card):
         return int(card[:1])
     elif card[:1] == 'A':
         print ("\n"+ str(card))
-        num = input("Would you like this Ace to be worth 1 or 11? ")
+        num = input("Would you like this Ace to be worth 1 or 11? Enter 1 or 11.")
         while num !='1' or num !='11':
             if num == '1':
                 return int(1)
             elif num == '11':
                 return int(11)
             else:
-                num = input("Would you like this Ace to be worth 1 or 11? ")
+                num = input("Would you like this Ace to be worth 1 or 11? Enter 1 or 11. ")
 
 #give a new card and remove card from original list                 
 def new_card(deck_of_six):   
@@ -152,7 +152,7 @@ while doLoop:
 
     else:
         while value_hand < 21:
-            user_input= input("Would you like to hit or stand? \n")
+            user_input= input("Would you like to hit or stand? Enter hit or stand. \n")
             if user_input== "hit" or user_input=="Hit":
                 card_3= new_card(deck_of_six) # we get a fresh, random card from the deck
                 value_3= value_of_card(card_3) 
