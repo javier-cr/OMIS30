@@ -37,7 +37,7 @@ cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
 
 #Function for providing integer value for cards dealt
 def value_of_card(card):
-    if card[0] in cardvalues[9:12+1]: # if card is a 10 or J/Q/K
+    if card[0] == "10" or card[0]=="J" or card[0]=="Q" or card[0]=="K": # if card is a 10 or J/Q/K
         return int(10)
     elif card[0] in cardvalues[1:9]: # if card is a # 2 thru 9, inclusive
         return int(card[0])
@@ -170,7 +170,7 @@ while play_again!= "exit" or play_again!= "Exit":
     
     # END DEBUG CODE
     global value_hand
-    value_hand= int(value_1) + int(value_2) # PROBLEMATIC LINE
+    value_hand= value_1 + value_2 # PROBLEMATIC LINE
     print ("\n@174 Value Hand is: " + str(value_hand) + "\n")
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
      color.END + "\n")
