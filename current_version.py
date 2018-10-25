@@ -171,6 +171,7 @@ while play_again!= "exit" or play_again!= "Exit":
     print ("@175 Value 2 is: " + str(value_2) + "\n")
     
     # END DEBUG CODE
+    global value_hand
     value_hand= value_1 + value_2 # PROBLEMATIC LINE
     print ("@176 Value Hand is: " + str(value_hand) + "\n")
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
