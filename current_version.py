@@ -61,9 +61,9 @@ def value_of_card(card):
                     return int(11)
                 else:
                     ace_value== str(input("Please enter a 1 or 11 as the value\
-                     for your " +\
-                     str(card)+ "? \n"))
-                 
+                     for your " + str(card)+ "? \n"))
+    else:
+        return int(999999)           
 
 #give a new card and remove card from original list                 
 def new_card(deck_of_six):   
