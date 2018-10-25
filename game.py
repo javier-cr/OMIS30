@@ -12,7 +12,7 @@ cardvalues= ("A","2","3","4","5","6","7","8","9","10","J","Q","K")
 deck=[]
 for cardvalue in cardvalues:
     for suit in suits:
-        deck.append(cardvalue + suit) 
+        deck.append(cardvalue + " of " + suit) 
 deck_1= []      
 for i in deck:  
     b=6*[i]        #make loop for number of decks you want in one large deck
@@ -20,10 +20,11 @@ for i in deck:
 deck_of_cards=list(itertools.chain.from_iterable(deck_1)) #flatten all lists of cards to make one big list with all cards
 
 
+
 #Create a list of drawn cards
 #ending_cards= []
 
-#Welcome user Tanner
+#Welcome user
 print("Welcome to Blackjack! Your cards have been dealt.")
 #Deal cards
 user_hand=[]
