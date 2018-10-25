@@ -1,4 +1,4 @@
-#Created by: Tanner Suard
+#Created by: Tanner Suard, Javier Ramirez, and Chris Martin
 #Purpose: Project 2 for OMIS30, create a blackjack simulator
 #Date: October 24, 2018
 
@@ -15,11 +15,11 @@ import os
 #define a function for a deck of cards with 6 decks within it
 def deck_of_cards():
     suits= ("Hearts","Diamonds","Clubs","Spades")
-    cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
+    cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]   
     deck=[]
     for cardvalue in cardvalues:
         for suit in suits:
-            deck.append(cardvalue + " of " + suit) 
+            deck.append(cardvalue + " of " + suit)   #Append suits and values to create cards
     deck_1= []      
     for i in deck:  
         b=6*[i] #make loop for 6 decks to combine into one large deck
@@ -38,17 +38,17 @@ cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
 #Function for providing integer value for cards dealt
 def value_of_card(card):
     if card[:1] in ("J","Q","K","1"):
-        return int(10)
+        return int(10)    #Assign a value of 10 to 10's and face cards
     elif card[:1] in ("2","3","4","5","6","7","8","9"):
-        return int(card[:1])
+        return int(card[:1])     #Assign value of number cards equal to the number
     elif card[:1] == "A":
         print ("\n"+ str(card))
-        num = input("Would you like this Ace to be worth 1 or 11? ")
+        num = input("Would you like this Ace to be worth 1 or 11? ")    #Give option for value of Ace
         while num !="1" or num !="11":
             if num == "1":
-                return int(1)
+                return int(1)     #Add one to hand value if 1 is chosen 
             elif num == "11":
-                return int(11)
+                return int(11)     #Add 11 to hand value if qq is chosen
             else:
                 num = input("Would you like this Ace to be worth 1 or 11? ")
 
@@ -131,24 +131,25 @@ while dont_Break1 and dont_Break2:
 
     #Blackjack results if player has blackjack
     if value_hand == 21:
-        print("Congratulations! You got a Blackjack!")
+        print(color.GREEN+ "Congratulations! You got a Blackjack!" + color.END)
         print("The Dealer now reveals his second card which is a "\
          + dealer_card_2 + " for a total of " + str(dealer_value_hand) + ".")
+         # Establish rules if user and dealer tie at a blackjack
         if dealer_value_hand== 21 and value_hand== 21:
-            print("You and the Dealer both have Blackjack so you push and tie!")
+            print(color.YELLOW + "You and the Dealer both have Blackjack so you push and tie!" + color.END)
             bet = bet # bet stays the same, okay to remove this line too
             play_again = input("Would you like to play another hand? Or you can\
              type exit to leave\n")
-            if play_again == "exit":
+            if play_again == "exit":   #Allow user to exit program
                 break
             else: 
                 pass
         else: 
-            print("You win!") # player wins a Blackjack
+            print(color.GREEN + "You win!" + color.END) # player wins a Blackjack
             bet = bet + (bet * 1.5)
             play_again = input("Would you like to play another hand? Or you can\
              type exit to leave\n")
-            if play_again == "exit":
+            if play_again == "exit":      #Allow user to exit program
                 break
             else: 
                 pass
@@ -162,21 +163,23 @@ while dont_Break1 and dont_Break2:
                 if user_Choice == "hit" or user_Choice == "Hit":
                     deciding_Card = new_card(deck_of_six) # we get a new card from the combined deck
                     deciding_Card_Value = value_of_card(deciding_Card)
-                    value_hand += deciding_Card_Value
+                    value_hand += deciding_Card_Value    #Add value of card to total hand value
                     print("\nYou were dealt a " + deciding_Card + " for a total of "\
                  + str(value_hand) + ".")
                     
                     if value_hand > 21:
-                        print ("Your hand is over 21. You busted!")
+                        print (color.RED + "Your hand is over 21. You busted!" + color.END)
+                        bet = 0    #Lose the money you bet
                         play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
                         if play_again == "exit":
-                            dont_Break1 = False
-                            dont_Break2 = False
+                            dont_Break1 = False  # exit out of main loop
+                            dont_Break2 = False  # exit out of secondary loop
                             break
                         else: 
                             pass
-                    elif value_hand == 21:
-                        print ("You got a Blackjack, you win!")
+                    elif value_hand == 21:    #Rules for if user gets a blackjack
+                        print (color.GREEN + "You got a Blackjack, you win!" + color.END)
+                        bet = bet + (bet * 1.5)
                         play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
                         if play_again == "exit":
                             dont_Break1 = False
@@ -184,7 +187,7 @@ while dont_Break1 and dont_Break2:
                             break
                         else: pass
             
-                elif user_Choice == "stand" or user_Choice == "Stand":
+                elif user_Choice == "stand" or user_Choice == "Stand":    #Rules for if user stands instead of hitting
                     while True: 
                         if dealer_value_hand < 17:
                             print("The dealer's hand equals less than 17, so they must hit.", end=" ")
@@ -196,18 +199,25 @@ while dont_Break1 and dont_Break2:
                          str(dealer_value_hand) + ".")
                         
                         
-                        elif dealer_value_hand >16 and dealer_value_hand <21:
+                        elif dealer_value_hand >16 and dealer_value_hand <21:   
+                            #If dealer passes his/her hit limit, but does not bust
                             #if value is 1-21 
                             if dealer_value_hand > value_hand:
-                                print("You lose. The dealer wins!\n")
+                                print(color.RED + "You lose. The dealer wins!\n" + color.END)
+                                bet = 0
                                 play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
                                 if play_again == "exit":
                                     dont_Break1 = False
                                     dont_Break2 = False
                                     break
                                 else: pass
-                            elif dealer_value_hand < value_hand:
-                                print("You win! Collect your money!")
+                            elif dealer_value_hand < value_hand: 
+                                #Both dealer and user are done below 21 and user has higher score
+                                print(color.GREEN + "You win! Collect your money!" + color.END)
+                                if value_hand == 21:
+                                    bet = bet + (bet * 1.5)  #Win by black jack gets 1.5 times the bet limit
+                                elif value_hand < 21:
+                                    bet = bet + bet
                                 play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
                                 if play_again == "exit":
                                     dont_Break1 = False
@@ -215,7 +225,9 @@ while dont_Break1 and dont_Break2:
                                     break
                                 else: pass
                             elif dealer_value_hand == value_hand:
-                                print("You and the dealer tie! Collect the money you bet")
+                                print(color.YELLOW + "You and the dealer tie resulting in a push! Collect the money you bet" + color.END)
+                                #User and dealer are below 21 but tie
+                                bet = bet   #User gets money back
                                 play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
                                 if play_again == "exit":
                                     dont_Break1 = False
@@ -223,10 +235,15 @@ while dont_Break1 and dont_Break2:
                                     break
                                 else: pass
                         elif dealer_value_hand > 21:
-                            print("The dealer busted! You Win")
+                            print(color.GREEN + "The dealer busted! You Win" + color.END)
+                            if value_hand == 21:
+                                    bet = bet + (bet * 1.5)
+                            elif value_hand < 21:
+                                    bet = bet + bet
                             play_again = input("Would you like to play another hand? Or you can type exit to leave\n")
                             if play_again == "exit":
                                 dont_Break1 = False
                                 dont_Break2 = False
                                 break
                             else: pass
+        print (color.PURPLE + "You ended with $" + str(bet) + "." + color.END)
