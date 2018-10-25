@@ -47,6 +47,30 @@ def value_of_card(card):
     elif card[0] == "A": # if card is a Ace
         #create value_hand list with total value of cards. If over 11 with ace in it, 
         # then ace has to be a 1
+        if value_hand >= 11:
+            return int(1)
+        elif value_hand < 11:
+            ace_choice = input("Would you like to treat the Ace as a 1 or 11?")
+            if ace_choice == 1:
+                return int(1)
+            elif ace_choice == 11:
+                return int(11)
+            else:
+                return int(999999)
+        elif value_hand == 0:
+            ace_choice = input("Would you like to treat the Ace as a 1 or 11?")
+        else: return int(999999)
+
+
+        # first card, and we need to keep going. Ask user if 1 or 11
+        # not first card, user hand is 11 or less --> ask user if 1 or 11
+        # not first card, user hand is 12 or greater --> treat as 1
+
+        
+        
+        
+        
+        '''
         if value_hand>11: 
             return int(1)
         else:
@@ -63,7 +87,8 @@ def value_of_card(card):
                     ace_value== str(input("Please enter a 1 or 11 as the value\
                      for your " + str(card)+ "? \n"))
     else:
-        return int(999999)           
+        return int(999999)   
+    '''        
 
 #give a new card and remove card from original list                 
 def new_card(deck_of_six):   
