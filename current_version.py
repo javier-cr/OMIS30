@@ -37,7 +37,6 @@ cardvalues= ["A","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
 
 #Function for providing integer value for cards dealt
 def value_of_card(card):
-    #only reading first slice to determine value of the card
     if card[:1] in ('J','Q','K','1'):
         return int(10)
     elif card[:1] in ('2','3','4','5','6','7','8','9'):
