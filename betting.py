@@ -17,4 +17,4 @@ for i in range (0,int(number_of_players)): #Start with dealer (0) and go until n
 print("\nList of bets list: " + str(ListOfBets))
 print("Current player: " + str(current_player))
 print("Number of players: " + str(number_of_players))
-print("Iteration number of loop: " + str(i))
+print("Iteration number of loop: " + str(i))3
