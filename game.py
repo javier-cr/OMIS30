@@ -7,7 +7,7 @@ import random
 import collections
 import itertools
 #deck of cards with 6 decks within it
-suits= ("H","D","C","S")
+suits= ("Hearts","Diamonds","Clubs","Spades")
 cardvalues= ("A","2","3","4","5","6","7","8","9","10","J","Q","K")
 deck=[]
 for cardvalue in cardvalues:
@@ -19,6 +19,7 @@ for i in deck:
     deck_1.extend([b]) #create correct number of cards but each card type in own list
 deck_of_cards=list(itertools.chain.from_iterable(deck_1)) #flatten all lists of cards to make one big list with all cards
 
+print(deck_of_cards)
 
 
 #Create a list of drawn cards
