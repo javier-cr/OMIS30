@@ -32,19 +32,19 @@ def deck_of_cards():
 
 #create a deck that can be popped and used repeatedly until runs out of cards.
 deck_of_six=deck_of_cards()   
-cardvalues= ("A","2","3","4","5","6","7","8","9","10","J","Q","K")
-
+cardvalues= ("A","2","3","4","5","6","7","8","9","10","Jack","Queen","King")
+ #            0   1   2   3   4   5   6   7   8    9   10      11      12
 
 #Function for providing integer value for cards dealt
 def value_of_card(card):
     #turn strings of values into integers for cards that equal 10 for the game.
-    if card[0] in cardvalues[9:13]:
+    if card[0] in cardvalues[9:12+1]: # if card is a 10 or J/Q/K
         return int(10)
     #turn strings of values into integers for strait numbers 2 thru 9 for the game.
-    elif card[0] in cardvalues[1:9]:
+    elif card[0] in cardvalues[1:9]: # if card is a #
         return int(card[0])
     #turn strings of values into integres for Ace. Allow player to use ace as an 11 or 1.
-    elif card[0] == "A":
+    elif card[0] == "A": # if card is a Ace
         #create value_hand list with total value of cards. If over 11 with ace in it, 
         # then ace has to be a 1
         if value_hand>11: 
