@@ -1,6 +1,6 @@
-#Created by: Tanner Suard
+#Created by: Tanner Suard, Javier Ramirez, Chris Martin
 #Purpose: Project 2 for OMIS30, create a blackjack simulator
-#Date: October 24, 2018
+#Date: October 25, 2018
 
 import random
 import itertools
@@ -111,7 +111,6 @@ while doLoop:
     
     global value_hand
     value_hand= value_1 + value_2 # PROBLEMATIC LINE
-    print ("\n@174 Value Hand is: " + str(value_hand) + "\n")
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
      color.END + "\n")
 
@@ -136,8 +135,7 @@ while doLoop:
         if dealer_value_hand== 21 and value_hand== 21:
             print("You and the Dealer both have Blackjack so you push and tie!")
             bet = bet # bet stays the same, okay to remove this line too
-            play_again = input("Would you like to play another hand? Or you can\
-             type exit to leave\n")
+            play_again = input("Would you like to play another hand? Enter 'yes' or 'exit'.\n")
             if play_again == "exit":
                 break
             else: 
@@ -145,8 +143,7 @@ while doLoop:
         else: 
             print("You win!") # player wins a Blackjack
             bet = bet + (bet * 1.5)
-            play_again = input("Would you like to play another hand? Or you can\
-             type exit to leave\n")
+            play_again = input("Would you like to play another hand? Enter 'yes' or 'exit'.\n")
             if play_again == "exit":
                 break
             else: 
@@ -165,7 +162,7 @@ while doLoop:
 
                 if value_hand > 21:
                     print("\nYou busted; therefore, you lose this hand.")
-                    bet = 0
+                    bet = 0 # player loses bet
                 else:
                     print("The Dealer reveals his face down card to be a "\
                     + dealer_card_2 + " for a total of " + str(dealer_value_hand) + ".")
@@ -179,17 +176,22 @@ while doLoop:
                         + str(dealer_value_hand)+ ".")
                         if dealer_value_hand > 21 and value_hand <= 21:
                             print("The Dealer busted... You win!")
+                            bet = bet * 2 # Player gets 2x bet if dealer busts
                         elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
                             print("The Dealer has a higher hand than you. You lose!")
+                            bet = 0
                         else:
                             continue
 
                     if dealer_value_hand == value_hand:
                         print("There is a push. Player and Dealer tie.")
+                        bet = bet # tie, bet stays the same
                     elif dealer_value_hand < value_hand:
                         print("You have a higher hand than the Dealer. You win!")
+                        bet = bet * 2
                     else:
                         print("The Dealer has a higher hand than you. You lose!")
+                        bet = 0
 
             elif user_input== "stand" or user_input== "Stand":
                 print("The Dealer reveals his face down card to be a " +\
@@ -204,19 +206,25 @@ while doLoop:
                     
                     if dealer_value_hand > 21 and value_hand <= 21:
                         print("The Dealer busted... You win!")
+                        bet = bet * 2
                     elif dealer_value_hand < 21 and dealer_value_hand > value_hand:
                         print("The Dealer has a higher hand than you. You lose!")
+                        bet = 0
                     else:
                         continue
                 
                 elif dealer_value_hand == value_hand:
                     print("There is a push. Player and Dealer tie.")
+                    bet = bet # tie, bet stays the same
                 elif dealer_value_hand < value_hand:
                     print("You have a higher hand than the Dealer. You win!")
+                    bet = bet * 2
                 else:
                     print("The Dealer has a higher hand than you. You lose!")
+                    bet = 0
                 break
-        play_again= input("Would you like to play another hand? Or you can type exit to leave\n")
+        print ("You have $" + str(bet) + ".", end = " ")       
+        play_again= input("Would you like to play another hand? Enter 'yes' or 'exit'.\n")
         if play_again == "exit":
             break
         else: 
