@@ -165,13 +165,13 @@ while play_again!= "exit" or play_again!= "Exit":
     value_1= value_of_card(card_1) 
     value_2= value_of_card(card_2)
     # DEBUG CODE:
-    print ("@174 Value 1 is: " + str(value_1) + "\n")
-    print ("@175 Value 2 is: " + str(value_2) + "\n")
+    print ("\n@168 Value 1 is: " + str(value_1) + "\n")
+    print ("@169 Value 2 is: " + str(value_2) + "\n")
     
     # END DEBUG CODE
     global value_hand
     value_hand= int(value_1) + int(value_2) # PROBLEMATIC LINE
-    print ("@176 Value Hand is: " + str(value_hand) + "\n")
+    print ("\n@174 Value Hand is: " + str(value_hand) + "\n")
     print("Your total hand value is " + color.BOLD + str(value_hand) + "."+\
      color.END + "\n")
 
@@ -209,8 +209,8 @@ while play_again!= "exit" or play_again!= "Exit":
                 card_3= new_card(deck_of_six) # we get a fresh, random card from the deck
                 value_3= value_of_card(card_3) #
                 # DEBUG CODE:
-                print ("@217 Value 3 is: " + str(value_3) + "\n")
-                print ("@218 Value Hand is: " + str(value_hand) + "\n")
+                print ("\n@212 Value 3 is: " + str(value_3) + "\n")
+                print ("@213 Value Hand is: " + str(value_hand) + "\n")
                 # END DEBUG CODE
 
                 value_hand += value_3 # this always line always breaks
