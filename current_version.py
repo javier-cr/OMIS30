@@ -45,10 +45,13 @@ def value_of_card(card):
         return int(card[0])
     #turn strings of values into integres for Ace. Allow player to use ace as an 11 or 1.
     elif card[0] == "A":
-        if value_hand>11:   #create value_hand list with total value of cards and if over 11 with ace in it, then ace has to be a 1
+        #create value_hand list with total value of cards. If over 11 with ace in it, 
+        # then ace has to be a 1
+        if value_hand>11: 
             return int(1)
         else:
-            ace_value= input("Would you like to treat the " + str(card) + " as a 1 or 11? \n")
+            ace_value= input("Would you like to treat the " + str(card) +\
+             " as a 1 or 11? \n")
             while ace_value !="1" or ace_value !="11":    #input validation
                 if ace_value== "1" or ace_value== "11":
                     return int(ace_value)
@@ -57,7 +60,9 @@ def value_of_card(card):
                 elif ace_value== "eleven":
                     return int(11)
                 else:
-                    ace_value== str(input("Please enter a 1 or 11 as the value for your " + str(card)+ "? \n"))
+                    ace_value== str(input("Please enter a 1 or 11 as the value\
+                     for your " +\
+                     str(card)+ "? \n"))
                  
 
 #give a new card and remove card from original list                 
@@ -177,7 +182,7 @@ while play_again!= "exit" or play_again!= "Exit":
             if user_input== "hit" or user_input=="Hit":
                 card_3= new_card(deck_of_six)
                 value_3= value_of_card(card_3)
-                value_hand += value_3
+                value_hand += value_3 # this always line always breaks
                 print("\nYou are dealt a " + card_3 + " for a total of "\
                  + str(value_hand) + ".")
 
