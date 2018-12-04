@@ -33,7 +33,8 @@ while keep_running:
     
     # INTRO
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
-    user_case = input('\nWhich case would you like to select to be yours? Case #')
+    user_case = input('\nWhich case would you like to select to be yours? Cas\
+    e #')
     cases_remaining = combo.pop((int(user_case))-1) # remove from combo (both)
 
     #cases_remaining.remove(user_case) # remove from available cases
@@ -46,7 +47,8 @@ while keep_running:
     # Ask user which cases to open
     cases_opened = []
     for i in range(1, cases_this_round+1):
-        current_num = input('Which case should be Case #' + str(i) + '? Case #')
+        current_num = input('Which case should be Case #' + str(i) + '? Case \
+        #')
         index_of_case = combo[i][0].index(current_num) # find index of case #
         print(index_of_case)
         
@@ -56,13 +58,13 @@ while keep_running:
         #cases_opened.append(current_num)
         
         if i == cases_this_round+1:
-            cases_this_round -= 1 # so that user will open 1 less case next time
+            cases_this_round -= 1 # user will open 1 less case next time
         else:
             pass
 
     # Show user values of cases they opened
-    print('\nYour personal case is Case #' + str(user_case) + ". Let's open the \
-cases you picked.\nThe cases you picked had the following values \
+    print('\nYour personal case is Case #' + str(user_case) + ". Let's open\
+     the cases you picked.\nThe cases you picked had the following values \
 inside of them: ")
     
     print (cases_opened)
@@ -80,7 +82,7 @@ inside of them: ")
     print('.')
     time.sleep(2)
     print("The Banker's offer is", banker_offer, 'dollars')
-    deal_choice = input('Will you accept the offer?    (deal/no deal/quit)   ')
+    deal_choice = input('Will you accept the offer?    (deal/no deal/quit)  ')
     if deal_choice == 'deal':
         print('You win ' + banker_offer + ' dollars in prize money!')
         play_again = input("Would you like to play again?  (y/n)")
