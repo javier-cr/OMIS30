@@ -6,7 +6,7 @@ def offer():
     sum_of_values = sum(combo.values())
     banker_offer = round((sum_of_values/len(combo)),0)
     return banker_offer
-
+      
 def decision(): 
     user_choice = input('What is your choice? Deal or No Deal? Enter\
  y for Deal or n for No Deal. \n')
