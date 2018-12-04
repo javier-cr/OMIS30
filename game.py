@@ -89,7 +89,7 @@ while keep_running:
             exit
     elif deal_choice == 'no deal':
         print('No deal! We will proceed to the next round!')
-        #help
+        #help please
 
 
 
