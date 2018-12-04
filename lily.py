@@ -1,2 +1,0 @@
-print ('lily')
-print("hi")
