@@ -21,12 +21,12 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 combo = [] # list of lists [case number, case $$ value]
 random.shuffle(listPrice) # shuffle only case values (not case #'s)
 combo = [[x, y] for x, y in zip(briefcases, listPrice)] # combine into 1 list
-print(combo)
+#print(combo)
 
 
 def finalCase(self):
-    print("You have case number " + cases_remaining +" and your original case number of "+ user_Case + " left.")
-    user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_remaining + " ?"))
+    print("You have case number " + cases_remaining +" and your original case number of "+ user_case + " left.")
+    user_final_choice= int(input("Which case number would you like to pick? " + user_case + " or " + cases_remaining + " ?"))
     print("You have chosen case number " + user_final_choice + ".")
     print("You win " + self.briefcaseWithValue[self.user_final_choice] + " dollars!")
     print("You have reached the end of the game. Thanks for playing!")
@@ -39,9 +39,14 @@ while keep_running:
     # INTRO
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
     
-    user_Case = input('\nWhich case would you like to select to be yours? Case #')
-    cases_remaining.remove(user_Case) # remove from available cases
-    cases_picked.append(user_Case) # add to cases chosen
+    user_case = input('\nWhich case would you like to select to be yours? Case #')
+    
+    print(combo)
+    cases_remaining = combo.pop((user_case)-1) # remove from combo (both)
+    print('again\n')
+    print(combo)
+    #cases_remaining.remove(user_case) # remove from available cases
+    #cases_picked.append(user_case) # add to cases chosen
     cases_this_round = 6 # how many cases they'll open this round. start at 6
 
     print('\nGreat! You have selected your case.\nNow, select ' +\
@@ -59,7 +64,7 @@ while keep_running:
             pass
 
     # Show user values of cases they opened
-    print('\nYour personal case is Case #' + str(user_Case) + ". Let's open the \
+    print('\nYour personal case is Case #' + str(user_case) + ". Let's open the \
     cases you picked.\nThe cases you picked had the following values \
     inside of them: ")
     
