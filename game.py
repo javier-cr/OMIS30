@@ -39,7 +39,7 @@ while keep_running:
     # INTRO
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
     user_case = input('\nWhich case would you like to select to be yours? Case #')
-    cases_remaining = combo.pop((user_case)-1) # remove from combo (both)
+    cases_remaining = combo.pop(int((user_case)-1)) # remove from combo (both)
 
     #cases_remaining.remove(user_case) # remove from available cases
     #cases_picked.append(user_case) # add to cases chosen
