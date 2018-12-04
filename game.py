@@ -35,8 +35,8 @@ while keep_running:
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
     user_case_num = input('\nWhich case would you like to select to be yours?\
  Case #')
-    user_case_val = combo[user_case_num] # find right key in dict
-    combo.pop(user_case_num) # remove user case from dict
+    user_case_val = combo[int(user_case_num)] # find right key in dict
+    combo.pop(int(user_case_num)) # remove user case from dict
     cases_this_round = 6 # how many cases they'll open this round. start at 6
 
     print('\nGreat! You have selected your case.\nNow, select ' +\
@@ -47,9 +47,9 @@ while keep_running:
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + '? Case \
         #')
-        current_case_val = combo[current_case_num] # find case $ value
-        cases_opened[current_case_num] = [current_case_val] # add to new dict
-        combo.pop(current_case_num) # remove chosen case from cases left (combo)
+        current_case_val = combo[int(current_case_num)] # find case $ value
+        cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
+        combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
         if i == cases_this_round+1:
             cases_this_round -= 1 # user will open 1 less case next time
         else:
