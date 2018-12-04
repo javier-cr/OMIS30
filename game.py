@@ -81,7 +81,7 @@ inside of them: ")
     if deal_choice == 'deal':
         print('You win ' + banker_offer + ' dollars in prize money!')
         play_again = input("Would you like to play again?  (y/n)")
-        if play_again == 'y'
+        if play_again == 'y':
             continue
         elif deal_choice == 'quit':
             exit
