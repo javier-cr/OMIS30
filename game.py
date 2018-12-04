@@ -78,7 +78,7 @@ inside of them: ")
     time.sleep(2)
     print("The Banker's offer is", banker_offer, 'dollars')
     deal_choice = input('Will you accept the offer?    (deal/no deal/quit)   ')
-    if deal_choice = 'deal':
+    if deal_choice == 'deal':
         print('You win ' + banker_offer + ' dollars in prize money!')
         play_again = input("Would you like to play again?  (y/n)")
         if play_again == 'y'
