@@ -89,6 +89,7 @@ inside of them: ")
 
     print("The Banker's offer is $" + str(offer())) # prints out banker's offer
 
+    decision()
     # if deal_choice == 'deal':
     #     print('You win ' + banker_offer + ' dollars in prize money!')
     #     play_again = input("Would you like to play again?  (y/n)")
