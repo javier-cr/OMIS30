@@ -2,10 +2,10 @@ import random
 import time
 import numpy as np
 
-cases_remaining = []
+cases_Remaining = []
 cases_Chosen = []
 
-cases_remaining.extend((4,5,6,7,8)) #remove this line
+cases_Remaining.extend((4,5,6,7,8)) #remove this line
 class dealOrNoDeal():
     briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,\
     14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24 ,25, 26]
@@ -25,8 +25,8 @@ class dealOrNoDeal():
         self.briefcaseWithValue = dict(zip(self.briefcases, self.listPrice))
     
     def finalCase(self):
-        print("You have case number " + cases_remaining +" and your original case number of "+ user_Case + " left.")
-        user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_remaining + " ?"))
+        print("You have case number " + cases_Remaining +" and your original case number of "+ user_Case + " left.")
+        user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining + " ?"))
         print("You have chosen case number " + user_final_choice + ".")
         print("You win " + self.briefcaseWithValue[self.user_final_choice] + " dollars!")
         print("You have reached the end of the game. Thanks for playing!")
@@ -40,7 +40,7 @@ while keep_running:
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
     
     user_Case = input('\nWhich case would you like to select to be yours? Case #')
-    cases_remaining.remove(user_Case) # remove from available cases
+    cases_Remaining.remove(user_Case) # remove from available cases
     cases_Chosen.append(user_Case) # add to cases chosen
     cases_this_round = 6 # how many cases they'll open this round. start at 6
 
@@ -70,7 +70,7 @@ inside of them: ")
     # Banker calls - CHRIS
 
 
-    banker_offer = np.mean(cases_remaining)
+    banker_offer = np.mean(cases_Remaining)
     print("The banker is calling! Let's hear what he has to offer!")
     print('.')
     print('.')
@@ -78,17 +78,16 @@ inside of them: ")
     time.sleep(2)
     print("The Banker's offer is", banker_offer, 'dollars')
     deal_choice = input('Will you accept the offer?    (deal/no deal/quit)   ')
-    if deal_choice == 'deal' or 'Deal' or 'd' or 'D':
+    if deal_choice == 'deal':
         print('You win ' + banker_offer + ' dollars in prize money!')
         play_again = input("Would you like to play again?  (y/n)")
-        if play_again == 'y' or 'yes' or 'Y' or 'Yes':
+        if play_again == 'y'
             continue
-        elif deal_choice == 'quit' or 'Quit' or 'q' or 'Q':
+        elif deal_choice == 'quit':
             exit
-        elif play_again == 'n' or 'N' or 'no' or 'No':
+        elif play_again == 'n':
             exit
-        pass
-    elif deal_choice == 'no deal' or 'No deal' or 'nodeal' or 'No Deal':
+    elif deal_choice == 'no deal':
         print('No deal! We will proceed to the next round!')
         #help
 
