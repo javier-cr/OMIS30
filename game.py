@@ -1,7 +1,7 @@
 import random
 import time
 import numpy as np
-#
+
 cases_remaining = [] # all cases left for user to pick
 cases_picked = [] # all cases that user has already picked
 
@@ -17,22 +17,13 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 100000.00, 200000.00, 300000.00, 400000.00, 500000.00,\
 750000.00, 1000000.00]
 
-# SHUFFLE the briefcases
-# combo = [] # list of lists [case number, case $$ value]
-random.shuffle(listPrice) # shuffle only case values (not case #'s)
-# combo = [[x, y] for x, y in zip(briefcases, listPrice)] # combine into 1 list
-# print(combo)
-combo = dict(zip(briefcases, listPrice))
-print(combo)
-print(combo.keys())
+# shuffle case $ values, not case #'s
+random.shuffle(listPrice) 
+# creates dictionary with briefcases, listprices
+combo = dict(zip(briefcases, listPrice)) 
 
-
-def finalCase(self):
-    print("You have case number " + cases_remaining +" and your original case number of "+ user_case + " left.")
-    user_final_choice= int(input("Which case number would you like to pick? " + user_case + " or " + cases_remaining + " ?"))
-    print("You have chosen case number " + user_final_choice + ".")
-    print("You win " + self.briefcaseWithValue[self.user_final_choice] + " dollars!")
-    print("You have reached the end of the game. Thanks for playing!")
+print(combo) #testing
+print(combo.keys()) #testing
 
 # Keep running game while run_game = True. If we want to end the game,
 # we set run_game = False.
