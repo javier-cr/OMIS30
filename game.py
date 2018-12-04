@@ -66,7 +66,7 @@ inside of them: ")
     
     for j in range (0, len(cases_opened)):
         time.sleep(2) #delay for 2 seconds
-        print ('Case #' + (str(cases_opened[j]) + ' had X amount inside of it.'))
+        print ('Case #' + (str(cases_opened[j])))
 
     # Banker calls - CHRIS
 
