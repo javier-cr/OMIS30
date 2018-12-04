@@ -9,7 +9,7 @@ def offer():
 
 def decision(): 
     user_choice = input('What is your choice? Deal or No Deal? Enter\
-y for Deal or n for No Deal.')
+ y for Deal or n for No Deal.')
 
     if user_choice == 'y':
         return ('Great! You win $' + str(offer()) + '!')
