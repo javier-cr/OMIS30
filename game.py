@@ -78,17 +78,16 @@ inside of them: ")
     time.sleep(2)
     print("The Banker's offer is", banker_offer, 'dollars')
     deal_choice = input('Will you accept the offer?    (deal/no deal/quit)   ')
-    if deal_choice == 'deal' or 'Deal' or 'd' or 'D':
+    if deal_choice = 'deal':
         print('You win ' + banker_offer + ' dollars in prize money!')
         play_again = input("Would you like to play again?  (y/n)")
-        if play_again == 'y' or 'yes' or 'Y' or 'Yes':
+        if play_again == 'y'
             continue
-        elif deal_choice == 'quit' or 'Quit' or 'q' or 'Q':
+        elif deal_choice == 'quit':
             exit
-        elif play_again == 'n' or 'N' or 'no' or 'No':
+        elif play_again == 'n':
             exit
-        pass
-    elif deal_choice == 'no deal' or 'No deal' or 'nodeal' or 'No Deal':
+    elif deal_choice == 'no deal':
         print('No deal! We will proceed to the next round!')
         #help
 
