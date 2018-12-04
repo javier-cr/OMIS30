@@ -31,70 +31,63 @@ print(combo.keys()) #testing
 keep_running = True
 while keep_running:
     
-    # INTRO
+    # INTRO - user picks their personal case
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
-    user_case = input('\nWhich case would you like to select to be yours? Cas\
-    e #')
-    cases_remaining = combo.pop((int(user_case))-1) # remove from combo (both)
-
-    #cases_remaining.remove(user_case) # remove from available cases
-    #cases_picked.append(user_case) # add to cases chosen
+    user_case_num = input('\nWhich case would you like to select to be yours?\
+ Case #')
+    user_case_val = combo[user_case_num] # find right key in dict
+    combo.pop(user_case_num) # remove user case from dict
     cases_this_round = 6 # how many cases they'll open this round. start at 6
 
     print('\nGreat! You have selected your case.\nNow, select ' +\
     str(cases_this_round) + ' cases to open this round.')
     
     # Ask user which cases to open
-    cases_opened = []
+    cases_opened = {} # make dict of cases opened
     for i in range(1, cases_this_round+1):
-        current_num = input('Which case should be Case #' + str(i) + '? Case \
+        current_case_num = input('Which case should be Case #' + str(i) + '? Case \
         #')
-        index_of_case = combo[i][0].index(current_num) # find index of case #
-        print(index_of_case)
-        
-        #cases_opened.append(combo[index_of_case])
-        
-        #cases_opened.append(combo[combo.index.current_num])
-        #cases_opened.append(current_num)
-        
+        current_case_val = combo[current_case_num] # find case $ value
+        cases_opened[current_case_num] = [current_case_val] # add to new dict
+        combo.pop(current_case_num) # remove chosen case from cases left (combo)
         if i == cases_this_round+1:
             cases_this_round -= 1 # user will open 1 less case next time
         else:
             pass
 
+
     # Show user values of cases they opened
-    print('\nYour personal case is Case #' + str(user_case) + ". Let's open\
-     the cases you picked.\nThe cases you picked had the following values \
+    print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
+open the cases you picked.\nThe cases you picked had the following values \
 inside of them: ")
-    
-    print (cases_opened)
-    for j in range (0, len(cases_opened)):
-        time.sleep(2) #delay for 2 seconds
-        print ('Case #' + (str(cases_opened[j])))
+
+    for num, val in cases_opened.items():
+        print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
+
 
     # Banker calls - CHRIS
 
 
-    banker_offer = np.mean(cases_remaining)
-    print("The banker is calling! Let's hear what he has to offer!")
-    print('.')
-    print('.')
-    print('.')
-    time.sleep(2)
-    print("The Banker's offer is", banker_offer, 'dollars')
-    deal_choice = input('Will you accept the offer?    (deal/no deal/quit)  ')
-    if deal_choice == 'deal':
-        print('You win ' + banker_offer + ' dollars in prize money!')
-        play_again = input("Would you like to play again?  (y/n)")
-        if play_again == 'y':
-            continue
-        elif deal_choice == 'quit':
-            exit
-        elif play_again == 'n':
-            exit
-    elif deal_choice == 'no deal':
-        print('No deal! We will proceed to the next round!')
-        #help please
+    # banker_offer = np.mean(cases_remaining)
+    # print("The banker is calling! Let's hear what he has to offer!")
+    # print('.')
+    # print('.')
+    # print('.')
+    # time.sleep(2)
+    # print("The Banker's offer is", banker_offer, 'dollars')
+    # deal_choice = input('Will you accept the offer?    (deal/no deal/quit)  ')
+    # if deal_choice == 'deal':
+    #     print('You win ' + banker_offer + ' dollars in prize money!')
+    #     play_again = input("Would you like to play again?  (y/n)")
+    #     if play_again == 'y':
+    #         continue
+    #     elif deal_choice == 'quit':
+    #         exit
+    #     elif play_again == 'n':
+    #         exit
+    # elif deal_choice == 'no deal':
+    #     print('No deal! We will proceed to the next round!')
+    #     #help please
 
 
 
