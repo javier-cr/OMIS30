@@ -60,9 +60,9 @@ while keep_running:
             pass
 
     # Show user values of cases they opened
-    print('\nYour personal case is Case #' + str(user_case) + ". Let's open the \
-    cases you picked.\nThe cases you picked had the following values \
-    inside of them: ")
+    print('\nYour personal case is Case #' + str(user_case) + ". Let's open the\
+cases you picked.\nThe cases you picked had the following values\
+inside of them: ")
     
     for j in range (0, len(cases_opened)):
         time.sleep(2) #delay for 2 seconds
