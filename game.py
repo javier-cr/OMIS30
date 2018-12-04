@@ -2,6 +2,21 @@ import random
 import time
 import numpy as np
 
+def offer():
+    sum_of_values = sum(combo.values())
+    banker_offer = round((sum_of_values/len(combo)),0)
+    return ("The Banker's offer is $" + str(banker_offer))
+
+def decision(): 
+    user_choice = input('What is your choice? Deal or No Deal? Enter\
+y or n.')
+
+    if user_choice == 'y':
+        doThis..
+    else:
+        user_choice == 'n':
+        doThis...
+
 cases_remaining = [] # all cases left for user to pick
 cases_picked = [] # all cases that user has already picked
 
@@ -17,12 +32,6 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 1000.00, 5000.00, 10000.00, 25000.00, 50000.00, 75000.00,\
 100000.00, 200000.00, 300000.00, 400000.00, 500000.00,\
 750000.00, 1000000.00]
-
-
-def offer():
-    sum_of_values = sum(combo.values())
-    banker_offer = round((sum_of_values/len(combo)),0)
-    return ("The Banker's offer is $" + str(banker_offer))
 
 # shuffle case $ values, not case #'s
 random.shuffle(listPrice) 
@@ -74,7 +83,7 @@ inside of them: ")
     # Banker calls - CHRIS
 
 
-    print(offer())
+    print(offer()) # prints out banker's offer
 
     # if deal_choice == 'deal':
     #     print('You win ' + banker_offer + ' dollars in prize money!')
