@@ -1,5 +1,6 @@
 import random
 import time
+import numpy as np
 
 cases_Remaining = []
 cases_Chosen = []
