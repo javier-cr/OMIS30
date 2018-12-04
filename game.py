@@ -19,7 +19,7 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 
 # SHUFFLE the briefcases
 combo = [] # list of lists [case number, case $$ value]
-random.shuffle(briefcases) # shuffle only case #'s (not values)
+random.shuffle(listPrice) # shuffle only case #'s (not values)
 combo = [[x, y] for x, y in zip(briefcases, listPrice)] # combine into 1 list
 print(combo)
 
