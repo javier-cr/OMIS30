@@ -9,16 +9,16 @@ def offer():
 
 def decision(): 
     user_choice = input('What is your choice? Deal or No Deal? Enter\
- y for Deal or n for No Deal.')
+ y for Deal or n for No Deal. \n')
 
     if user_choice == 'y':
         print ('Great! You win $' + str(offer()) + '!')
         play_again = input('Would you like to play again? Enter\
-        y for yes or n for no.')
-        if play_again == 'y'
-            #return to begining 
-        elif play_again == 'n'
-        exit
+y for yes or n for no. \n')
+        if play_again == 'y':
+            exit
+        elif play_again == 'n':
+            exit
 
         # Restart game
     elif user_choice == 'n':
