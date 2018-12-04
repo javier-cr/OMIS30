@@ -12,8 +12,14 @@ def decision():
 y for Deal or n for No Deal.')
 
     if user_choice == 'y':
-        return ('Great! You win $' + str(offer()) + '!')
-        # Would you like to play again?
+        print ('Great! You win $' + str(offer()) + '!')
+        play_again = input('Would you like to play again? Enter\
+        y for yes or n for no.')
+        if play_again == 'y'
+            #return to begining 
+        elif play_again == 'n'
+        exit
+
         # Restart game
     elif user_choice == 'n':
         print("stupid")
