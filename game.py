@@ -18,10 +18,13 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 750000.00, 1000000.00]
 
 # SHUFFLE the briefcases
-combo = [] # list of lists [case number, case $$ value]
+# combo = [] # list of lists [case number, case $$ value]
 random.shuffle(listPrice) # shuffle only case values (not case #'s)
-combo = [[x, y] for x, y in zip(briefcases, listPrice)] # combine into 1 list
+# combo = [[x, y] for x, y in zip(briefcases, listPrice)] # combine into 1 list
+# print(combo)
+combo = dict(zip(briefcases, listPrice))
 print(combo)
+
 
 
 def finalCase(self):
