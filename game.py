@@ -18,6 +18,12 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 100000.00, 200000.00, 300000.00, 400000.00, 500000.00,\
 750000.00, 1000000.00]
 
+
+def offer():
+    sum_of_values = sum(combo.values())
+    banker_offer = round((sum_of_values/len(combo)),0)
+    return ("The Banker's offer is $" + str(banker_offer))
+
 # shuffle case $ values, not case #'s
 random.shuffle(listPrice) 
 # creates dictionary with briefcases, listprices
@@ -68,14 +74,8 @@ inside of them: ")
     # Banker calls - CHRIS
 
 
-    # banker_offer = np.mean(cases_remaining)
-    # print("The banker is calling! Let's hear what he has to offer!")
-    # print('.')
-    # print('.')
-    # print('.')
-    # time.sleep(2)
-    # print("The Banker's offer is", banker_offer, 'dollars')
-    # deal_choice = input('Will you accept the offer?    (deal/no deal/quit)  ')
+    print(offer())
+
     # if deal_choice == 'deal':
     #     print('You win ' + banker_offer + ' dollars in prize money!')
     #     play_again = input("Would you like to play again?  (y/n)")
