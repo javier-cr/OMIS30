@@ -25,12 +25,12 @@ combo = [[x, y] for x, y in zip(briefcases, listPrice)]
 print(combo)
 
 
-    def finalCase(self):
-        print("You have case number " + cases_remaining +" and your original case number of "+ user_Case + " left.")
-        user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_remaining + " ?"))
-        print("You have chosen case number " + user_final_choice + ".")
-        print("You win " + self.briefcaseWithValue[self.user_final_choice] + " dollars!")
-        print("You have reached the end of the game. Thanks for playing!")
+def finalCase(self):
+    print("You have case number " + cases_remaining +" and your original case number of "+ user_Case + " left.")
+    user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_remaining + " ?"))
+    print("You have chosen case number " + user_final_choice + ".")
+    print("You win " + self.briefcaseWithValue[self.user_final_choice] + " dollars!")
+    print("You have reached the end of the game. Thanks for playing!")
 
 # Keep running game while run_game = True. If we want to end the game,
 # we set run_game = False.
