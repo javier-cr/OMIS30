@@ -67,7 +67,7 @@ while keep_running:
     cases_opened = {} # make dict of cases opened
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + '? Case \
-        #')
+#')
         current_case_val = combo[int(current_case_num)] # find case $ value
         cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
         combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
@@ -86,10 +86,7 @@ inside of them: ")
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
 
 
-    # Banker calls - CHRIS
-
-
-    print("The Banker's offer is $" + str(offer())) # prints out banker's offer
+    print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
 
     decision()
     # if deal_choice == 'deal':
