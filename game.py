@@ -21,7 +21,7 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 combo = [] # list of lists [case number, case $$ value]
 random.shuffle(listPrice) # shuffle only case values (not case #'s)
 combo = [[x, y] for x, y in zip(briefcases, listPrice)] # combine into 1 list
-#print(combo)
+print(combo)
 
 
 def finalCase(self):
@@ -47,12 +47,18 @@ while keep_running:
 
     print('\nGreat! You have selected your case.\nNow, select ' +\
     str(cases_this_round) + ' cases to open this round.')
-
+    
     # Ask user which cases to open
     cases_opened = []
     for i in range(1, cases_this_round+1):
         current_num = input('Which case should be Case #' + str(i) + '? Case #')
-        cases_opened.append(current_num)
+        index_of_case = combo[i][0].index(current_num) # find index of case #
+        print(index_of_case)
+        
+        #cases_opened.append(combo[index_of_case])
+        
+        #cases_opened.append(combo[combo.index.current_num])
+        #cases_opened.append(current_num)
         
         if i == cases_this_round+1:
             cases_this_round -= 1 # so that user will open 1 less case next time
@@ -64,6 +70,7 @@ while keep_running:
 cases you picked.\nThe cases you picked had the following values \
 inside of them: ")
     
+    print (cases_opened)
     for j in range (0, len(cases_opened)):
         time.sleep(2) #delay for 2 seconds
         print ('Case #' + (str(cases_opened[j])))
