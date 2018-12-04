@@ -24,7 +24,7 @@ random.shuffle(listPrice) # shuffle only case values (not case #'s)
 # print(combo)
 combo = dict(zip(briefcases, listPrice))
 print(combo)
-
+print(combo.keys())
 
 
 def finalCase(self):
