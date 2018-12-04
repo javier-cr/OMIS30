@@ -1,5 +1,5 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "/Users/lrodgers-masamori15/anaconda3/bin/python",
+    "python.pythonPath": "/anaconda3/bin/python",
     "python.linting.enabled": false
 }
