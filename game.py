@@ -68,8 +68,8 @@ inside of them: ")
         print ('Case #' + (str(cases_opened[j]) + ' had X amount inside of it.'))
 
     # Banker calls - CHRIS
-    
-    
+
+
     banker_offer = np.mean(cases_Remaining)
     print("The banker is calling! Let's hear what he has to offer!")
     print('.')
@@ -78,19 +78,23 @@ inside of them: ")
     time.sleep(2)
     print("The Banker's offer is", banker_offer, 'dollars')
     deal_choice = input('Will you accept the offer?    (deal/no deal/quit)   ')
-        if deal_choice = 'deal' or 'Deal' or 'd' or 'D':
-            print('You win ' + banker_offer + ' dollars in prize money!')
-            play_again = input("Would you like to play again?  (y/n)")
-            if play_again = 'y' or 'yes' or 'Y' or 'Yes':
-                continue
-            elif deal_choice = 'quit' or 'Quit' or 'q' or 'Q':
-                exit
-            elif play_again = 'n' or 'N' or 'no' or 'No':
-                exit
-            pass
-        elif deal_choice = 'no deal' or 'No deal' or 'nodeal' or 'No Deal':
-            print('No deal! We will proceed to the next round!')
-            #help
+    if deal_choice == 'deal' or 'Deal' or 'd' or 'D':
+        print('You win ' + banker_offer + ' dollars in prize money!')
+        play_again = input("Would you like to play again?  (y/n)")
+        if play_again == 'y' or 'yes' or 'Y' or 'Yes':
+            continue
+        elif deal_choice == 'quit' or 'Quit' or 'q' or 'Q':
+            exit
+        elif play_again == 'n' or 'N' or 'no' or 'No':
+            exit
+        pass
+    elif deal_choice == 'no deal' or 'No deal' or 'nodeal' or 'No Deal':
+        print('No deal! We will proceed to the next round!')
+        #help
+
+
+
+        
 
     keep_running = False # end game?
     
