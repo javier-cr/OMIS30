@@ -48,9 +48,6 @@ random.shuffle(listPrice)
 # creates dictionary with briefcases, listprices
 combo = dict(zip(briefcases, listPrice)) 
 
-print(combo) #testing
-print(combo.keys()) #testing
-
 # Keep running game while run_game = True. If we want to end the game,
 # we set run_game = False.
 keep_running = True
