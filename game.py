@@ -5,17 +5,21 @@ import numpy as np
 def offer():
     sum_of_values = sum(combo.values())
     banker_offer = round((sum_of_values/len(combo)),0)
-    return ("The Banker's offer is $" + str(banker_offer))
+    return banker_offer
 
 def decision(): 
     user_choice = input('What is your choice? Deal or No Deal? Enter\
 y or n.')
 
     if user_choice == 'y':
-        doThis..
-    else:
-        user_choice == 'n':
-        doThis...
+        return ('Great! You win $' + str(offer()) + '!')
+        # Would you like to play again?
+        # Restart game
+    elif user_choice == 'n':
+        print("stupid")
+        # Okay, please select 6 more cases
+        # Banker offer after 6 more case chosesn
+        #repeat this whole if statement
 
 cases_remaining = [] # all cases left for user to pick
 cases_picked = [] # all cases that user has already picked
@@ -83,7 +87,7 @@ inside of them: ")
     # Banker calls - CHRIS
 
 
-    print(offer()) # prints out banker's offer
+    print("The Banker's offer is $" + str(offer())) # prints out banker's offer
 
     # if deal_choice == 'deal':
     #     print('You win ' + banker_offer + ' dollars in prize money!')
