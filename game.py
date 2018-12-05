@@ -37,6 +37,7 @@ def decision():
 
     elif user_choice == "no deal" or user_choice == "No Deal":
         print("NO DEAL! We will proceed to the next round!")
+        pick_and_show_cases(cases_this_round)
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
@@ -47,7 +48,7 @@ def decision():
 #     print("You have chosen case number " + user_final_choice + ".")
 #     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
 
-def pick_and_show_cases():
+def pick_and_show_cases(cases_this_round):
     # Ask user which cases to open
     cases_opened = {} # make dict of cases opened
     for i in range(1, cases_this_round+1):
@@ -84,7 +85,7 @@ while keep_running:
 
     print('\nGreat! You have selected your case.\nNow, select ' +\
     str(cases_this_round) + ' cases to open this round.')
-    
+    pick_and_show_cases(cases_this_round)
     
 
     print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
