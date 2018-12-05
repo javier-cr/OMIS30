@@ -2,8 +2,6 @@ import random
 import time
 import numpy as np
 
-
-
 briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,\
 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24 ,25, 26]
 
@@ -18,9 +16,6 @@ random.shuffle(listPrice)
 # creates dictionary with briefcases, listprices
 combo = dict(zip(briefcases, listPrice)) 
 
-
-
-
 def offer():
     sum_of_values = sum(combo.values())
     banker_offer = round((sum_of_values/len(combo)),0)
@@ -28,7 +23,7 @@ def offer():
 
 def decision(): 
     user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
-or "no deal" for No Deal. \n')
+    or "no deal" for No Deal. \n')
 
     if user_choice == "deal" or user_choice == "Deal":
         print ('Great! You win $' + str(offer()) + '!')
@@ -40,11 +35,10 @@ or "no deal" for No Deal. \n')
         #     exit
 
     elif user_choice == "no deal" or user_choice == "No Deal":
-        print("NO DEAL! We will proceed to round 2!")
+        print("NO DEAL! We will proceed to the next round!")
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
-
 
 
 # Keep running game while run_game = True. If we want to end the game,
