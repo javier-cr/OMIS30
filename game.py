@@ -15,7 +15,7 @@ or "no deal" for No Deal. \n')
         print ('Great! You win $' + str(offer()) + '!')
         play_again = input('Would you like to play again? Enter "yes" or "no". \n')
         if play_again == "yes": #play again
-            exit
+            continue
         elif play_again == "no": # exit game
             print ('\nThanks for playing!\n')
             exit
@@ -89,22 +89,5 @@ inside of them: ")
     print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
 
     decision()
-    # if deal_choice == 'deal':
-    #     print('You win ' + banker_offer + ' dollars in prize money!')
-    #     play_again = input("Would you like to play again?  (y/n)")
-    #     if play_again == 'y':
-    #         continue
-    #     elif deal_choice == 'quit':
-    #         exit
-    #     elif play_again == 'n':
-    #         exit
-    # elif deal_choice == 'no deal':
-    #     print('No deal! We will proceed to the next round!')
-    #     #help please
-
-
-
-        
-
     keep_running = False # end game?
     
