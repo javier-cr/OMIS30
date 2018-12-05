@@ -17,6 +17,7 @@ or "no deal" for No Deal. \n')
         if play_again == "yes": #play again
             exit
         elif play_again == "no": # exit game
+            print ('\nThanks for playing!\n')
             exit
 
     elif user_choice == "no deal" or user_choice == "No Deal":
