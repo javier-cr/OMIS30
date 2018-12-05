@@ -21,7 +21,7 @@ or "no deal" for No Deal. \n')
             exit
 
     elif user_choice == "no deal" or user_choice == "No Deal":
-        print("stupid")
+        print("NO DEAL! We will proceed to round 2!")
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
