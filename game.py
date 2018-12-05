@@ -41,11 +41,11 @@ def decision():
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
 
-def finalCase(self):
-    print("You have case number " +cases_Remaining +" and your original case number of "+ user_Case+ " left.")
-    user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining " ?"))
-    print("You have chosen case number " + user_final_choice + ".")
-    print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
+# def finalCase(self):
+#     print("You have case number " +cases_Remaining +" and your original case number of "+ user_Case+ " left.")
+#     user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining " ?"))
+#     print("You have chosen case number " + user_final_choice + ".")
+#     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
 
 def pickCases():
     # Ask user which cases to open
