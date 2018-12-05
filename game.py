@@ -11,7 +11,7 @@ def decision():
     user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
 or "no deal" for No Deal. \n')
 
-    if user_choice == "deal":
+    if user_choice == "deal" or user_choice == "Deal":
         print ('Great! You win $' + str(offer()) + '!')
         play_again = input('Would you like to play again? Enter "yes" or "no". \n')
         if play_again == "yes": #play again
@@ -19,7 +19,7 @@ or "no deal" for No Deal. \n')
         elif play_again == "no": # exit game
             exit
 
-    elif user_choice == "no deal":
+    elif user_choice == "no deal" or user_choice == "No Deal":
         print("stupid")
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
