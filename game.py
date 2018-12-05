@@ -17,17 +17,16 @@ random.shuffle(listPrice)
 combo = dict(zip(briefcases, listPrice)) 
 
 def pick_and_show_cases(cases_this_round):
-    num_of_rounds = 0
     # Ask user which cases to open
     cases_opened = {} # make dict of cases opened
     print('Your options are: ', combo.keys())
 
-    for i in range(1, cases_this_round+1):
+    for i in range(0, cases_this_round):
         current_case_num = input('Which case should be Case #' + str(i) + '? Case #')
         current_case_val = combo[int(current_case_num)] # find case $ value
         cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
         combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
-        if i == cases_this_round+1:
+        if i == cases_this_round:
             cases_this_round -= 1 # user will open 1 less case next time
         else:
             pass
@@ -39,13 +38,6 @@ inside of them: ")
 
     for num, val in cases_opened.items():
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
-
-    if cases_this_round == 1:
-        finalCase()
-    elif cases_this_round > 1:
-        decision()
-    elif num_of_rounds == 8: # emergency exit
-        exit
 
 def offer():
     sum_of_values = sum(combo.values())
