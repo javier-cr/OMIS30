@@ -47,6 +47,28 @@ def finalCase(self):
     print("You have chosen case number " + user_final_choice + ".")
     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
 
+def pickCases():
+    # Ask user which cases to open
+    cases_opened = {} # make dict of cases opened
+    for i in range(1, cases_this_round+1):
+        current_case_num = input('Which case should be Case #' + str(i) + '? Case #')
+        current_case_val = combo[int(current_case_num)] # find case $ value
+        cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
+        combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
+        if i == cases_this_round+1:
+            cases_this_round -= 1 # user will open 1 less case next time
+        else:
+            pass
+
+def showCases():
+    # Show user values of cases they opened
+    print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
+open the cases you picked.\nThe cases you picked had the following values \
+inside of them: ")
+
+    for num, val in cases_opened.items():
+        print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
+
 
 # Keep running game while run_game = True. If we want to end the game,
 # we set run_game = False.
@@ -64,28 +86,7 @@ while keep_running:
     print('\nGreat! You have selected your case.\nNow, select ' +\
     str(cases_this_round) + ' cases to open this round.')
     
-    # Ask user which cases to open
-    cases_opened = {} # make dict of cases opened
-    for i in range(1, cases_this_round+1):
-        current_case_num = input('Which case should be Case #' + str(i) + '? Case \
-#')
-        current_case_val = combo[int(current_case_num)] # find case $ value
-        cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
-        combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
-        if i == cases_this_round+1:
-            cases_this_round -= 1 # user will open 1 less case next time
-        else:
-            pass
-
-
-    # Show user values of cases they opened
-    print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
-open the cases you picked.\nThe cases you picked had the following values \
-inside of them: ")
-
-    for num, val in cases_opened.items():
-        print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
-
+    
 
     print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
 
