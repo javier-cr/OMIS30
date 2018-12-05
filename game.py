@@ -8,7 +8,7 @@ def offer():
     return banker_offer
       
 def decision(): 
-    user_choice = input('What is your choice? Deal or No Deal? Enter for Deal \
+    user_choice = input('What is your choice? Deal or No Deal? Enter 1 for Deal \
 or 2 for No Deal. \n')
 
     if user_choice == int(1):
