@@ -34,12 +34,12 @@ def pick_cases(cases_this_round):
             cases_this_round -= 1 # user will open 1 less case next time
         else:
             pass
-    while len(combo) != 1:
-        decision()
-    else:
-        lastValue()
-        finalCase()
-
+    # while len(combo) != 1:
+    #     decision()
+    # else:
+    #     lastValue()
+    #     finalCase()
+    
 
 
 
@@ -51,7 +51,8 @@ inside of them: ")
 
     for num, val in cases_opened.items():
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
-
+    offer()
+    decision()
 
 def lastValue():
     for num, val in cases_opened.items():
@@ -114,11 +115,11 @@ while keep_running:
  Case #')
     user_case_val = combo[int(user_case_num)] # find right key in dict
     combo.pop(int(user_case_num)) # remove user case from dict
-    cases_this_round = 7# how many cases they'll open this round. start at 6
-    while cases_this_round > 1:
+    cases_this_round = 7 # how many cases they'll open this round. start at 6
+    while cases_this_round > 6:
         cases_this_round = cases_this_round - 1
-        print('\nGreat! You have selected your case.\nNow, select ' +\
-        str(cases_this_round) + ' cases to open this round.')
+    print('\nGreat! You have selected your case.\nNow, select ' +\
+    str(cases_this_round) + ' case to open this round.')
     
     pick_cases(cases_this_round)
     show_cases()
