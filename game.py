@@ -26,12 +26,6 @@ or "no deal" for No Deal. \n')
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
 
-cases_remaining = [] # all cases left for user to pick
-cases_picked = [] # all cases that user has already picked
-
-priceLeft = [] # not yet in use
-selected = 0 # not yet in use
-selectedPrice = 0 # not yet in use
 
 briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,\
 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24 ,25, 26]
