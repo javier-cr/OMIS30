@@ -22,7 +22,7 @@ combo = dict(zip(briefcases, listPrice))
 
 
 
-def pick_and_show_cases(cases_this_round):
+def pick_cases(cases_this_round):
     print('Your options are: ', combo.keys())
 
     for i in range(1, cases_this_round+1):
@@ -35,7 +35,11 @@ def pick_and_show_cases(cases_this_round):
         else:
             pass
 
-    # Show user values of cases they opened
+
+
+
+
+def show_cases():
     print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
 open the cases you picked.\nThe cases you picked had the following values \
 inside of them: ")
@@ -72,7 +76,7 @@ def decision():
 
     elif user_choice == "no deal" or user_choice == "No Deal":
         print("NO DEAL! We will proceed to the next round!")
-        pick_and_show_cases(cases_this_round)
+        pick_cases(cases_this_round)
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
@@ -112,6 +116,6 @@ while keep_running:
     print('\nGreat! You have selected your case.\nNow, select ' +\
     str(cases_this_round) + ' cases to open this round.')
     
-    pick_and_show_cases(cases_this_round)
-    
+    pick_cases(cases_this_round)
+    show_cases()
     keep_running = False # end game?
