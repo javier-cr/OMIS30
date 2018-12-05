@@ -16,35 +16,6 @@ random.shuffle(listPrice)
 # creates dictionary with briefcases, listprices
 combo = dict(zip(briefcases, listPrice)) 
 
-def offer():
-    sum_of_values = sum(combo.values())
-    banker_offer = round((sum_of_values/len(combo)),0)
-    return banker_offer
-
-def decision(): 
-    print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
-    
-    user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
-    or "no deal" for No Deal. \n')
-    
-    if user_choice == "deal" or user_choice == "Deal":
-        print ('Great! You win $' + str(offer()) + '!')
-        exit # player wins, ends game
-
-    elif user_choice == "no deal" or user_choice == "No Deal":
-        print("NO DEAL! We will proceed to the next round!")
-        return 1
-        # Okay, please select 6 more cases
-        # Banker offer after 6 more case chosesn
-        #repeat this whole if statement
-
-def finalCase():
-    print ('finalcase')
-#     print("You have case number " +cases_Remaining +" and your original case number of "+ user_Case+ " left.")
-#     user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining " ?"))
-#     print("You have chosen case number " + user_final_choice + ".")
-#     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
-
 def pick_and_show_cases(cases_this_round):
     num_of_rounds = 0
     # Ask user which cases to open
@@ -77,6 +48,36 @@ inside of them: ")
         decision()
     elif num_of_rounds == 8: # emergency exit
         exit
+
+def offer():
+    sum_of_values = sum(combo.values())
+    banker_offer = round((sum_of_values/len(combo)),0)
+    return banker_offer
+
+def decision(): 
+    print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
+    
+    user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
+    or "no deal" for No Deal. \n')
+    
+    if user_choice == "deal" or user_choice == "Deal":
+        print ('Great! You win $' + str(offer()) + '!')
+        exit # player wins, ends game
+
+    elif user_choice == "no deal" or user_choice == "No Deal":
+        print("NO DEAL! We will proceed to the next round!")
+        pick_and_show_cases(cases_this_round)
+        # Okay, please select 6 more cases
+        # Banker offer after 6 more case chosesn
+        #repeat this whole if statement
+
+def finalCase():
+    print ('finalcase')
+#     print("You have case number " +cases_Remaining +" and your original case number of "+ user_Case+ " left.")
+#     user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining " ?"))
+#     print("You have chosen case number " + user_final_choice + ".")
+#     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
+
 
 # Keep running game while run_game = True. If we want to end the game,
 # we set run_game = False.
