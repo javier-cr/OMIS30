@@ -20,9 +20,7 @@ def pick_and_show_cases(cases_this_round):
     num_of_rounds = 0
     # Ask user which cases to open
     cases_opened = {} # make dict of cases opened
-    print('Your options are: ')
-    for items in combo: # print what's left in dict
-        print ('Case #' + str(items))
+    print('Your options are: ', combo.keys())
 
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + '? Case #')
