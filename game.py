@@ -42,8 +42,8 @@ def decision():
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
 
-    def finalCase(self):
-        print ('finalcase')
+def finalCase():
+    print ('finalcase')
 #     print("You have case number " +cases_Remaining +" and your original case number of "+ user_Case+ " left.")
 #     user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining " ?"))
 #     print("You have chosen case number " + user_final_choice + ".")
@@ -69,12 +69,13 @@ open the cases you picked.\nThe cases you picked had the following values \
 inside of them: ")
 
     for num, val in cases_opened.items():
+        print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
 
     if cases_this_round == 1:
-        finalCases()
+        finalCase()
     elif cases_this_round > 1:
         decision()
-    elif num_of_rounds = 8: # emergency exit
+    elif num_of_rounds == 8: # emergency exit
         exit
 
 # Keep running game while run_game = True. If we want to end the game,
