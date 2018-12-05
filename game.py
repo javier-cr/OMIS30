@@ -47,7 +47,7 @@ def decision():
 #     print("You have chosen case number " + user_final_choice + ".")
 #     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
 
-def pickCases():
+def pick_and_show_cases():
     # Ask user which cases to open
     cases_opened = {} # make dict of cases opened
     for i in range(1, cases_this_round+1):
@@ -60,7 +60,6 @@ def pickCases():
         else:
             pass
 
-def showCases():
     # Show user values of cases they opened
     print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
 open the cases you picked.\nThe cases you picked had the following values \
