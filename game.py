@@ -32,6 +32,7 @@ or "no deal" for No Deal. \n')
 
     if user_choice == "deal" or user_choice == "Deal":
         print ('Great! You win $' + str(offer()) + '!')
+        exit
         # play_again = input('Would you like to play again? Enter "yes" or "no". \n')
         # if play_again == "yes": #play again
         #     continue
