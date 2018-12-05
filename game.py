@@ -8,19 +8,18 @@ def offer():
     return banker_offer
       
 def decision(): 
-    user_choice = input('What is your choice? Deal or No Deal? Enter 1 for Deal \
-or 2 for No Deal. \n')
+    user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
+or "no deal" for No Deal. \n')
 
-    if user_choice == int(1):
+    if user_choice == "deal":
         print ('Great! You win $' + str(offer()) + '!')
-        play_again = input('Would you like to play again? Enter 1 for yes or \
-2 for no. \n')
-        if play_again == 1: #play again
+        play_again = input('Would you like to play again? Enter "yes" or "no". \n')
+        if play_again == "yes": #play again
             exit
-        elif play_again == 2: # exit game
+        elif play_again == "no": # exit game
             exit
 
-    elif user_choice == int(2):
+    elif user_choice == "no deal":
         print("stupid")
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
