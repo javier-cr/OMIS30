@@ -16,6 +16,10 @@ random.shuffle(listPrice)
 # creates dictionary with briefcases, listprices
 combo = dict(zip(briefcases, listPrice)) 
 
+
+
+
+
 def pick_and_show_cases(cases_this_round):
     # Ask user which cases to open
     cases_opened = {} # make dict of cases opened
@@ -39,10 +43,22 @@ inside of them: ")
     for num, val in cases_opened.items():
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
 
+
+
+
+
+
+
+
+
 def offer():
     sum_of_values = sum(combo.values())
     banker_offer = round((sum_of_values/len(combo)),0)
     return banker_offer
+
+
+
+
 
 def decision(): 
     print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
@@ -61,12 +77,23 @@ def decision():
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
 
+
+
+
+
+
+
 def finalCase():
     print ('finalcase')
 #     print("You have case number " +cases_Remaining +" and your original case number of "+ user_Case+ " left.")
 #     user_final_choice= int(input("Which case number would you like to pick? " + user_Case + " or " + cases_Remaining " ?"))
 #     print("You have chosen case number " + user_final_choice + ".")
 #     print("You win " + self.briefcaseWithValue[self.user_final_choice] + "!")
+
+
+
+
+
 
 
 # Keep running game while run_game = True. If we want to end the game,
