@@ -13,12 +13,12 @@ or "no deal" for No Deal. \n')
 
     if user_choice == "deal" or user_choice == "Deal":
         print ('Great! You win $' + str(offer()) + '!')
-        play_again = input('Would you like to play again? Enter "yes" or "no". \n')
-        if play_again == "yes": #play again
-            continue
-        elif play_again == "no": # exit game
-            print ('\nThanks for playing!\n')
-            exit
+        # play_again = input('Would you like to play again? Enter "yes" or "no". \n')
+        # if play_again == "yes": #play again
+        #     continue
+        # elif play_again == "no": # exit game
+        #     print ('\nThanks for playing!\n')
+        #     exit
 
     elif user_choice == "no deal" or user_choice == "No Deal":
         print("NO DEAL! We will proceed to round 2!")
