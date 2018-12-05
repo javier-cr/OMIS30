@@ -22,22 +22,18 @@ def offer():
     return banker_offer
 
 def decision(): 
+    print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
+    
     user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
     or "no deal" for No Deal. \n')
-
+    
     if user_choice == "deal" or user_choice == "Deal":
         print ('Great! You win $' + str(offer()) + '!')
-        exit
-        # play_again = input('Would you like to play again? Enter "yes" or "no". \n')
-        # if play_again == "yes": #play again
-        #     continue
-        # elif play_again == "no": # exit game
-        #     print ('\nThanks for playing!\n')
-        #     exit
+        exit # player wins, ends game
 
     elif user_choice == "no deal" or user_choice == "No Deal":
         print("NO DEAL! We will proceed to the next round!")
-        pick_and_show_cases(cases_this_round)
+        return 1
         # Okay, please select 6 more cases
         # Banker offer after 6 more case chosesn
         #repeat this whole if statement
@@ -53,6 +49,10 @@ def pick_and_show_cases(cases_this_round):
     num_of_rounds = 0
     # Ask user which cases to open
     cases_opened = {} # make dict of cases opened
+    print('Your options are: ')
+    for items in combo: # print what's left in dict
+        print ('Case #' + str(items))
+
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + '? Case #')
         current_case_val = combo[int(current_case_num)] # find case $ value
@@ -93,10 +93,7 @@ while keep_running:
 
     print('\nGreat! You have selected your case.\nNow, select ' +\
     str(cases_this_round) + ' cases to open this round.')
+    
     pick_and_show_cases(cases_this_round)
     
-
-    print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
-
-    decision()
     keep_running = False # end game?
