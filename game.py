@@ -11,6 +11,8 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 100000.00, 200000.00, 300000.00, 400000.00, 500000.00,\
 750000.00, 1000000.00]
 
+cases_opened = {} # make dict of cases opened
+
 # shuffle case $ values, not case #'s
 random.shuffle(listPrice) 
 # creates dictionary with briefcases, listprices
@@ -21,16 +23,14 @@ combo = dict(zip(briefcases, listPrice))
 
 
 def pick_and_show_cases(cases_this_round):
-    # Ask user which cases to open
-    cases_opened = {} # make dict of cases opened
     print('Your options are: ', combo.keys())
 
-    for i in range(0, cases_this_round):
+    for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + '? Case #')
         current_case_val = combo[int(current_case_num)] # find case $ value
         cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
         combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
-        if i == cases_this_round:
+        if i == cases_this_round+1:
             cases_this_round -= 1 # user will open 1 less case next time
         else:
             pass
