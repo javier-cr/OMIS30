@@ -1,7 +1,6 @@
 import random
 import time
 
-
 briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,\
 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24 ,25, 26]
 
@@ -83,10 +82,9 @@ def offer():
 
 
 def finalCase(): #left for tomorrow
-    final_case = 1
     global cases_this_round
     print('finalCase is in motion.')
-    print(final_case)
+
     if cases_this_round == -3:
         final_choice = input('You have made it to the last round. You must \
 either open your personal case or the only one left.')
@@ -97,8 +95,7 @@ either open your personal case or the only one left.')
         show_cases()
         offer()
         decision()
-        final_case -= 1
-        print(final_case)
+        
     else: 
         pick_cases(cases_this_round)
         show_cases()
@@ -130,4 +127,4 @@ offer()
 cases_this_round -=1
 decision()
 
-#keep_going()
+#keep_going() This is already called within the decision function. No need for this here.
