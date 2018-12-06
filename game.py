@@ -126,7 +126,7 @@ Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
          #" + str(combo.keys()) + " had $" + str(combo.values()) + " Inside! Thanks for playing!")
     else:
         print('\nThat is not a valid input! Please enter "mine" or "switch"\n')
-        finalCase()
+        finalDecision()
 
 
 def keep_going():
