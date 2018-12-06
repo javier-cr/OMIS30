@@ -101,7 +101,13 @@ def finalCase(): #left for tomorrow
 either open your personal case or the only one left.\
 Your personal case is' + str(user_case_num) + ". \
 The only case left is " + str(combo.keys())+ ".")
-        print(final_choice)
+        if final_choice == str(user_case_num):
+            print ("You picked" + str(user_case_num)+ "! You win $" + str(user_case_val) + ". \
+            Thanks for playing!")
+        elif final_choice == str(combo.keys()):
+            print ("You picked" + str(combo.keys())+ "! You win $" + str(user_case_val) + ".\
+             Thanks for playing!")
+
     elif cases_this_round <= 1:
         print("Now, you may only pick 1 case at a time.")
         pick_cases(cases_this_round)
