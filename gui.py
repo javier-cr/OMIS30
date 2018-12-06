@@ -3,6 +3,7 @@
 from flask import Flask, request
 from game_for_gui import do_calculation
 from game_for_gui import pick_user_case
+import game_for_gui
 
 app = Flask(__name__)
 app.config["DEBUG"] = True #remove later
@@ -31,6 +32,7 @@ def adder_page():
     
     
     return '''
+        <!doctype html>
         <html>
             <body>
                 {errors}
@@ -46,13 +48,15 @@ def adder_page():
     '''.format(errors=errors)
 
 @app.route("/pickcase", methods=["GET", "POST"])
-def pickcase():
+
+def pickcase(): #shown to user online
     return '''
         <html>
             <body>
                 <h1>Great! You have selected your case.</h1>
-                <h2> Your options are {options}.
-                <p>Which case should be #xxxxx to eliminate?
+                <h2> Your options are {game_for_gui.combo.keys()}. #not working
+                <p>Which cases would you like to eliminate?
+                <p> Your options are
                 <form method="post" action="/pickcase">
                     <p><input name="number1" /></p>
                     <p><input type="submit" value="Submit Case" /></p>
