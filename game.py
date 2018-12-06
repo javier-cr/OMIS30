@@ -88,7 +88,7 @@ def finalCase(): #left for tomorrow
     global cases_this_round
     print('finalCase is in motion.')
 
-    if cases_this_round == -3:
+    if len(combo) == 1:
         final_choice = input('You have made it to the last round. You must \
 either open your personal case or the only one left.')
         print(final_choice)
