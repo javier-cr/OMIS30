@@ -98,7 +98,9 @@ def finalCase(): #left for tomorrow
 
     if len(combo) == 1:
         final_choice = input('You have made it to the last round. You must \
-either open your personal case or the only one left. Your personal case is' + str(user_case_num) + ". The only case left is " + str(combo.keys())+ ".")
+either open your personal case or the only one left.\
+Your personal case is' + str(user_case_num) + ". \
+The only case left is " + str(combo.keys())+ ".")
         print(final_choice)
     elif cases_this_round <= 1:
         print("Now, you may only pick 1 case at a time.")
