@@ -119,8 +119,8 @@ Your personal case is case #' + str(user_case_num) + ". \
 The only case left is " + str(combo.keys())+ ". \
 Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
     if final_choice == 'mine' or 'Mine':
-        print ("You picked case #" + str(user_case_num) + "! Case #" + str(user_case_num) + \
-        " had $" str(user_case_val) + " inside. Thanks for playing!")
+        print ("You picked case #" + str(user_case_num) + "! Case #" + str(user_case_num) + "\
+         had $" str(user_case_val) + " inside. Thanks for playing!")
     elif final_choice == 'switch' or 'Switch':
         print ("You picked case #" + str(combo.keys()) + "! Case\
          #" + str(combo.keys()) + "You win $" + str(combo.items()) + ". Thanks for playing!")
