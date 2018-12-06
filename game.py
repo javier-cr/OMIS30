@@ -44,14 +44,18 @@ def pick_cases(cases_this_round):
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + \
 '? Case #')
-        current_case_val = combo[int(current_case_num)] # find case $ value
-        cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
-        combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
-        if i == cases_this_round+1:
-            cases_this_round -= 1 # user will open 1 less case next time
+        if current_case_num.isnumeric():
+            current_case_val = combo[int(current_case_num)] # find case $ value
+            cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
+            combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
+            if i == cases_this_round+1:
+                cases_this_round -= 1 # user will open 1 less case next time
+            else:
+                pass
         else:
-            pass
-   
+            print('\nThat is not a valid input! Please enter a number 1-26 from the remaining cases!\n')
+            pick_cases(cases_this_round)
+    
     
 def show_cases():
     print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
