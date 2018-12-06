@@ -1,5 +1,7 @@
 from flask import Flask, request
 from game_for_gui import do_calculation
+from game_for_gui import pick_user_case
+
 app = Flask(__name__)
 app.config["DEBUG"] = True #remove later
 
@@ -7,19 +9,15 @@ app.config["DEBUG"] = True #remove later
 def adder_page():
     errors = ""
     if request.method == "POST":
-        number1 = None
-        number2 = None
+        user_case_num = None
         try:
-            number1 = float(request.form["number1"])
+            user_case_num = int(request.form["number1"])
         except:
             errors += "<p>{!r} is not a number.</p>\n".format(request.form["number1"])
-        try:
-            number2 = float(request.form["number2"])
         
-        except:
-            errors += "<p>{!r} is not a number.</p>\n".format(request.form["number2"])
-        if number1 is not None and number2 is not None:
-            result = do_calculation(number1, number2)
+        if user_case_num is not None:
+            ########
+            result = pick_user_case(user_case_num)
             return '''
                 <html>
                     <body>
@@ -34,12 +32,29 @@ def adder_page():
         <html>
             <body>
                 {errors}
-                <p>Enter your numbers:
-                <form method="post" action=".">
+                <h1>Welcome to Deal or No Deal!</h1>
+                <h2>Created by Chris, Javi, Lily, and Tanner.</h2>
+                <p>Choose a personal case. You may select a case numbered 1-26.
+                <form method="post" action="/pickcase">
                     <p><input name="number1" /></p>
-                    <p><input name="number2" /></p>
-                    <p><input type="submit" value="Do calculation" /></p>
+                    <p><input type="submit" value="Submit Case" /></p>
                 </form>
             </body>
         </html>
     '''.format(errors=errors)
+
+@app.route("/pickcase", methods=["GET", "POST"])
+def pickcase():
+    return '''
+        <html>
+            <body>
+                <h1>Great! You have selected your case.</h1>
+                <h2> Your options are {options}.
+                <p>Which case should be #xxxxx to eliminate?
+                <form method="post" action="/pickcase">
+                    <p><input name="number1" /></p>
+                    <p><input type="submit" value="Submit Case" /></p>
+                </form>
+            </body>
+        </html>
+    '''
