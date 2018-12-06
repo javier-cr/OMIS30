@@ -25,3 +25,27 @@ def intro():
 
 def do_calculation(number1, number2): #from flask tutorial, remove later
     return number1 + number2
+
+def pick_user_case(user_case_num):
+    #global user_case_num, user_case_val
+    #user_case_num = input('\nWhich case would you like to select to be yours?\
+ #Case #')
+    user_case_val = combo[int(user_case_num)] # find right key in dict
+    combo.pop(int(user_case_num)) # remove user case from dict
+    print('\nGreat! You have selected your case.\n')
+    #return user_case_num, user_case_val
+
+def pick_cases(cases_this_round):
+    print('Your options are: ', combo.keys())
+
+    for i in range(1, cases_this_round+1):
+        current_case_num = input('Which case should be Case #' + str(i) + \
+' to eliminate? Case #')
+        current_case_val = combo[int(current_case_num)] # find case $ value
+        cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
+        combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
+        return 
+        if i == cases_this_round+1:
+            cases_this_round -= 1 # user will open 1 less case next time
+        else:
+            pass
