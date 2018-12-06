@@ -102,12 +102,13 @@ def finalCase():
     print("The remaining case is ")
 
 def keep_going() :
+    global cases_this_round
     print('Now, select ' + str(cases_this_round) + ' case to open this round.')
-
+    
     pick_cases(cases_this_round)
     show_cases()
+    cases_this_round -= 1
     decision()
-    print("just finished keep_going")
 
 
 
@@ -126,7 +127,6 @@ combo.pop(int(user_case_num)) # remove user case from dict
 
 print('\nGreat! You have selected your case.\n')
 print("back in while loop")
-cases_this_round -= 1
 keep_going()
 
 # decision()
