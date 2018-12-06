@@ -73,6 +73,9 @@ for playing.\n')
     elif user_choice == "no deal" or user_choice == "No Deal":
         print("\nNO DEAL! We will proceed to the next round!\n")
         keep_going()
+    else:
+        print('That is not a valid answer! Please enter "deal" or "no deal". ')
+        decision()
 
 
 def offer():
