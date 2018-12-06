@@ -43,7 +43,7 @@ def pick_cases(cases_this_round):
 
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + \
-'? Case #')
+' to eliminate? Case #')
         if current_case_num.isnumeric():
             current_case_val = combo[int(current_case_num)] # find case $ value
             cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
