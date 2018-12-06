@@ -123,7 +123,7 @@ Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
          had $" + str(user_case_val) + " inside. Thanks for playing!")
     elif final_choice == 'switch' or 'Switch':
         print ("You picked case #" + str(combo.keys()) + "! Case\
-         #" + str(combo.keys()) + "You win $" + str(combo.items()) + ". Thanks for playing!")
+         #" + str(combo.keys()) + " had $" + str(combo.values()) + " Inside! Thanks for playing!")
     else:
         print('\nThat is not a valid input! Please enter "mine" or "switch"\n')
         finalCase()
