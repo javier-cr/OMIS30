@@ -12,20 +12,35 @@ listPrice = [0.01, 1.00, 5.00, 10.00, 25.00, 50.00, 75.00,\
 750000.00, 1000000.00]
 
 cases_opened = {} # make dict of cases opened
-
-# shuffle case $ values, not case #'s
-random.shuffle(listPrice) 
-# creates dictionary with briefcases, listprices
-combo = dict(zip(briefcases, listPrice)) 
-
+user_case_num = None
+user_case_val = None
 cases_this_round = 6 # how many cases they'll open this round. start at 6
+
+random.shuffle(listPrice) # shuffle case values, not nums
+combo = dict(zip(briefcases, listPrice)) # create dict with case nums, vals
+
+
+def intro():
+    # WELCOME
+    print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
+
+
+def pick_user_case():
+    global user_case_num, user_case_val
+    user_case_num = input('\nWhich case would you like to select to be yours?\
+ Case #')
+    user_case_val = combo[int(user_case_num)] # find right key in dict
+    combo.pop(int(user_case_num)) # remove user case from dict
+    print('\nGreat! You have selected your case.\n')
+    return user_case_num, user_case_val
 
 
 def pick_cases(cases_this_round):
     print('Your options are: ', combo.keys())
 
     for i in range(1, cases_this_round+1):
-        current_case_num = input('Which case should be Case #' + str(i) + '? Case #')
+        current_case_num = input('Which case should be Case #' + str(i) + \
+'? Case #')
         current_case_val = combo[int(current_case_num)] # find case $ value
         cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
         combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
@@ -38,16 +53,27 @@ def pick_cases(cases_this_round):
 def show_cases():
     print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
 open the cases you picked.\nThe cases you picked had the following values \
-inside of them: ")
+inside of them:\n")
 
     for num, val in cases_opened.items():
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
-    offer()
+    #offer() - moved this to end and keep going
 
 
-def lastValue():
-    for num, val in cases_opened.items():
-        print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
+def decision(): 
+    print("\nThe Banker's offer is $" + str(offer()) + "\n") # banker offer
+    
+    user_choice = input('What is your choice? Deal or No Deal? Enter "deal" \
+for Deal or "no deal" for No Deal. \n')
+    
+    if user_choice == "deal" or user_choice == "Deal":
+        print ('\nCongratulations, you won $' + str(offer()) + '! Thank you \
+for playing.\n')
+        quit() # player wins, ends game
+
+    elif user_choice == "no deal" or user_choice == "No Deal":
+        print("\nNO DEAL! We will proceed to the next round!\n")
+        keep_going()
 
 
 def offer():
@@ -56,41 +82,52 @@ def offer():
     return banker_offer
 
 
-def decision(): 
-    print("\nThe Banker's offer is $" + str(offer()) + "\n") # prints out banker's offer
-    
-    user_choice = input('What is your choice? Deal or No Deal? Enter "deal" for Deal \
-    or "no deal" for No Deal. \n')
-    
-    if user_choice == "deal" or user_choice == "Deal":
-        print ('Great! You win $' + str(offer()) + '!')
-        exit # player wins, ends game
-
-    elif user_choice == "no deal" or user_choice == "No Deal":
-        print("NO DEAL! We will proceed to the next round!")
-        keep_going()
-
-
 def finalCase(): #left for tomorrow
-    print("The remaining case is ")
-
-def keep_going() :
+    final_case = 1
     global cases_this_round
-    print('Now, select ' + str(cases_this_round) + ' case to open this round.')
-    
-    pick_cases(cases_this_round)
-    show_cases()
-    cases_this_round -= 1
-    decision()
+    print('finalCase is in motion.')
+    print(final_case)
+    if cases_this_round == -3:
+        final_choice = input('You have made it to the last round. You must \
+either open your personal case or the only one left.')
+        print(final_choice)
+    elif cases_this_round <= 1:
+        print("Now, you may only pick 1 case at a time.")
+        pick_cases(cases_this_round)
+        show_cases()
+        offer()
+        decision()
+        final_case -= 1
+        print(final_case)
+    else: 
+        pick_cases(cases_this_round)
+        show_cases()
+        offer()
+        decision()
 
-# WELCOME
-print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
-user_case_num = input('\nWhich case would you like to select to be yours?\
-Case #')
-user_case_val = combo[int(user_case_num)] # find right key in dict
-combo.pop(int(user_case_num)) # remove user case from dict
+def keep_going():
+    global cases_this_round
 
-print('\nGreat! You have selected your case.\n')
-print("back in while loop")
+    if cases_this_round == 1:
+        finalCase()
+    #elif len(combo) == 4:
+    #    print('...')
+    else:
+        print('Now, select ' + str(cases_this_round) + ' cases to open this \
+round.')
+        pick_cases(cases_this_round)
+        show_cases()
+        offer()
+        cases_this_round -= 1
+        decision()
 
-keep_going()
+
+intro()
+pick_user_case()
+pick_cases(cases_this_round)
+show_cases()
+offer()
+cases_this_round -=1
+decision()
+
+#keep_going()
