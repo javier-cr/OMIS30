@@ -28,10 +28,14 @@ def pick_user_case():
     global user_case_num, user_case_val
     user_case_num = input('\nWhich case would you like to select to be yours?\
  Case #')
-    user_case_val = combo[int(user_case_num)] # find right key in dict
-    combo.pop(int(user_case_num)) # remove user case from dict
-    print('\nGreat! You have selected your case.\n')
-    return user_case_num, user_case_val
+    if user_case_num.isnumeric():
+        user_case_val = combo[int(user_case_num)] # find right key in dict
+        combo.pop(int(user_case_num)) # remove user case from dict
+        print('\nGreat! You have selected your case.\n')
+        return user_case_num, user_case_val
+    else:
+        print('\nThat is not a valid number! Please enter a number 1 - 26!')
+        pick_user_case()
 
 
 def pick_cases(cases_this_round):
