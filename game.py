@@ -28,7 +28,7 @@ def pick_user_case():
     global user_case_num, user_case_val
     user_case_num = input('\nWhich case would you like to select to be yours?\
  Case #')
-    if user_case_num.isnumeric():
+    if user_case_num.isnumeric() and int(user_case_num) > 0 and int(user_case_num) < 27:
         user_case_val = combo[int(user_case_num)] # find right key in dict
         combo.pop(int(user_case_num)) # remove user case from dict
         print('\nGreat! You have selected your case.\n')
@@ -44,7 +44,7 @@ def pick_cases(cases_this_round):
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + \
 ' to eliminate? Case #')
-        if current_case_num.isnumeric():
+        if current_case_num.isnumeric() and int(current_case_num) > 0 and int(current_case_num) < 27:
             current_case_val = combo[int(current_case_num)] # find case $ value
             cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
             combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
