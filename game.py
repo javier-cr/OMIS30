@@ -7,6 +7,12 @@
 import random
 import time
 
+#############################################
+
+###         Briefcase Creation           ####
+
+#############################################
+
 briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,\
 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24 ,25, 26]
 
@@ -25,10 +31,27 @@ random.shuffle(listPrice) # shuffle case values, not nums
 combo = dict(zip(briefcases, listPrice)) # create dict with case nums, vals
 
 
+
+
+
+
+
+
+#############################################
+
+###              Functions                ###
+
+#############################################
+
+
+
 def intro():
     # WELCOME
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
 
+
+
+# Function in which user will choose the case to keep throughout the game
 
 def pick_user_case():
     global user_case_num, user_case_val
@@ -43,6 +66,10 @@ def pick_user_case():
         print('\nThat is not a valid number! Please enter a number 1 - 26!')
         pick_user_case()
 
+
+
+
+# Function that has user pick new cases to eliminate each round
 
 def pick_cases(cases_this_round):
     print('Your options are: ', combo.keys())
@@ -62,6 +89,10 @@ def pick_cases(cases_this_round):
             print('\nThat is not a valid input! Please enter a number 1-26 from the remaining cases!\n')
             pick_cases(cases_this_round)
     
+
+
+
+# Function that shows the user the values inside the cases they eliminated    
     
 def show_cases():
     print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
@@ -70,8 +101,23 @@ inside of them:\n")
 
     for num, val in cases_opened.items():
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
-    #offer() - moved this to end and keep going
 
+
+
+
+
+# Function that creates the banker's offer
+
+def offer():
+    sum_of_values = sum(combo.values())
+    banker_offer = round((sum_of_values/len(combo)),0)
+    return banker_offer
+
+
+
+
+
+# Function that asks for the users "deal" or "no deal" decision
 
 def decision(): 
     print("\nThe Banker's offer is $" + str(offer()) + "\n") # banker offer
@@ -92,11 +138,11 @@ for playing.\n')
         decision()
 
 
-def offer():
-    sum_of_values = sum(combo.values())
-    banker_offer = round((sum_of_values/len(combo)),0)
-    return banker_offer
 
+
+
+
+# Function that activates when only one case remains
 
 def finalCase(): #left for tomorrow
     global cases_this_round
@@ -118,30 +164,44 @@ def finalCase(): #left for tomorrow
         offer()
         decision()
 
+
+
+
+
+
+# Function that asks for user's final decision on the last case
+
 def finalDecision():
     final_choice = input('You have made it to the last round. You must \
 either open your personal case or the only one left.\
-Your personal case is case #' + str(user_case_num) + ". \
-The only case left is " + str(combo.keys())+ ". \
+ Your personal case is case #' + str(user_case_num) + ". \
+ The only case left is " + str(combo.keys())+ ". \
 Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
+
     if final_choice == 'mine' or final_choice == 'Mine':
         print ("You picked case # " + str(user_case_num) + "! Case #" + str(user_case_num) + "\
-had $" + str(user_case_val) + " inside. Thanks for playing!")
+ had $" + str(user_case_val) + " inside. Thanks for playing!")
+
     elif final_choice == 'switch' or final_choice == 'Switch':
         print ("You picked case # " + str(combo.keys()) + "! Case\
 #" + str(combo.keys()) + " had $" + str(combo.values()) + " inside! Thanks for playing!")
+
     else:
         print('\nThat is not a valid input! Please enter "mine" or "switch"\n')
         finalDecision()
 
+
+
+
+
+
+# Function that prompts game to continue until only one case is left
 
 def keep_going():
     global cases_this_round
 
     if cases_this_round == 1:
         finalCase()
-    #elif len(combo) == 4:
-    #    print('...')
     else:
         print('Now, select ' + str(cases_this_round) + ' cases to open this \
 round.')
@@ -152,6 +212,11 @@ round.')
         decision()
 
 
+
+
+# Call all functions
+
+
 intro()
 pick_user_case()
 pick_cases(cases_this_round)
@@ -159,5 +224,3 @@ show_cases()
 offer()
 cases_this_round -=1
 decision()
-
-#keep_going() This is already called within the decision function. No need for this here.
