@@ -44,7 +44,7 @@ def pick_cases(cases_this_round):
     for i in range(1, cases_this_round+1):
         current_case_num = input('Which case should be Case #' + str(i) + \
 ' to eliminate? Case #')
-        if current_case_num.isnumeric() and int(current_case_num) > 0 and int(current_case_num) < 27:
+        if current_case_num.isnumeric() and int(current_case_num) > 0 and int(current_case_num) < 27 and (int(current_case_num) in combo.keys()):
             current_case_val = combo[int(current_case_num)] # find case $ value
             cases_opened[int(current_case_num)] = [current_case_val] # add to new dict
             combo.pop(int(current_case_num)) # remove chosen case from cases left (combo)
@@ -97,17 +97,7 @@ def finalCase(): #left for tomorrow
     print('finalCase is in motion.')
 
     if len(combo) == 1:
-        
-        final_choice = input('You have made it to the last round. You must \
-either open your personal case or the only one left.\
-Your personal case is' + str(user_case_num) + ". \
-The only case left is " + str(combo.keys())+ ".")
-        if final_choice == str(user_case_num):
-            print ("You picked" + str(user_case_num)+ "! You win $" + str(user_case_val) + ". \
-            Thanks for playing!")
-        elif final_choice == str(combo.keys()):
-            print ("You picked" + str(combo.keys()) + "! You win $" + str(combo.items()) + ". \
-             Thanks for playing!")
+        finalDecision()
     
     elif cases_this_round <= 1:
         print("Now, you may only pick 1 case at a time.")
@@ -121,6 +111,23 @@ The only case left is " + str(combo.keys())+ ".")
         show_cases()
         offer()
         decision()
+
+def finalDecision():
+    final_choice = input('You have made it to the last round. You must \
+either open your personal case or the only one left.\
+Your personal case is case #' + str(user_case_num) + ". \
+The only case left is " + str(combo.keys())+ ". \
+Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
+    if final_choice == 'mine' or final_choice == 'Mine':
+        print ("You picked case # " + str(user_case_num) + "! Case #" + str(user_case_num) + "\
+had $" + str(user_case_val) + " inside. Thanks for playing!")
+    elif final_choice == 'switch' or final_choice == 'Switch':
+        print ("You picked case # " + str(combo.keys()) + "! Case\
+#" + str(combo.keys()) + " had $" + str(combo.values()) + " inside! Thanks for playing!")
+    else:
+        print('\nThat is not a valid input! Please enter "mine" or "switch"\n')
+        finalDecision()
+
 
 def keep_going():
     global cases_this_round
