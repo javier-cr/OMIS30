@@ -1,3 +1,5 @@
+# Run this in terminal to start page: FLASK_APP=gui.py flask run
+
 from flask import Flask, request
 from game_for_gui import do_calculation
 from game_for_gui import pick_user_case
