@@ -97,21 +97,7 @@ def finalCase(): #left for tomorrow
     print('finalCase is in motion.')
 
     if len(combo) == 1:
-        
-        final_choice = input('You have made it to the last round. You must \
-either open your personal case or the only one left.\
-Your personal case is ' + str(user_case_num) + ". \
-The only case left is " + str(combo.keys())+ ". \
-Enter 'mine' to keep you case or 'switch' to choose the final case.\n")
-        if final_choice == 'mine' or 'Mine':
-            print ("You picked " + str(user_case_num)+ "! You win $" + str(user_case_val) + ". \
-            Thanks for playing!")
-        elif final_choice == 'switch' or 'Switch':
-            print ("You picked case " + str(combo.keys()) + "! You win $" + str(combo.items()) + ". \
-             Thanks for playing!")
-        else:
-            print('\nThat is not a valid input! Please enter "mine" or "switch"\n')
-            finalCase()
+        finalDecision()
     
     elif cases_this_round <= 1:
         print("Now, you may only pick 1 case at a time.")
@@ -125,6 +111,23 @@ Enter 'mine' to keep you case or 'switch' to choose the final case.\n")
         show_cases()
         offer()
         decision()
+
+def finalDecision():
+    final_choice = input('You have made it to the last round. You must \
+either open your personal case or the only one left.\
+Your personal case is ' + str(user_case_num) + ". \
+The only case left is " + str(combo.keys())+ ". \
+Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
+    if final_choice == 'mine' or 'Mine':
+        print ("You picked " + str(user_case_num)+ "! You win $" + str(user_case_val) + ". \
+        Thanks for playing!")
+    elif final_choice == 'switch' or 'Switch':
+        print ("You picked case " + str(combo.keys()) + "! You win $" + str(combo.items()) + ". \
+            Thanks for playing!")
+    else:
+        print('\nThat is not a valid input! Please enter "mine" or "switch"\n')
+        finalCase()
+
 
 def keep_going():
     global cases_this_round
