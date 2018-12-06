@@ -1,3 +1,9 @@
+# Authors: Javier Ramirez, Chris Martin, Lily Rodgers-Masamori, Tanner Suard
+# Date: December 6th, 2018
+# Purpose: Write code to run the popular game 'Deal or No Deal'
+
+
+
 import random
 import time
 
