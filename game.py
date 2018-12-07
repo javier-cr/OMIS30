@@ -50,7 +50,6 @@ def intro():
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
 
 
-
 # Function in which user will choose the case to keep throughout the game
 
 def pick_user_case():
