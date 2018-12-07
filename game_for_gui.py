@@ -23,13 +23,10 @@ def intro():
     # WELCOME
     print('Welcome to Deal or No Deal!\nYou may choose a case numbered 1-26.')
 
-def do_calculation(number1, number2): #from flask tutorial, remove later
+def do_calculation(number1, number2):
     return number1 + number2
 
 def pick_user_case(user_case_num):
-    #global user_case_num, user_case_val
-    #user_case_num = input('\nWhich case would you like to select to be yours?\
- #Case #')
     user_case_val = combo[int(user_case_num)] # find right key in dict
     combo.pop(int(user_case_num)) # remove user case from dict
     print('\nGreat! You have selected your case.\n')

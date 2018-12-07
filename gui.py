@@ -6,7 +6,7 @@ from game_for_gui import pick_user_case
 import game_for_gui
 
 app = Flask(__name__)
-app.config["DEBUG"] = True #remove later
+app.config["DEBUG"] = True
 
 @app.route("/", methods=["GET", "POST"])
 def adder_page():
@@ -19,7 +19,6 @@ def adder_page():
             errors += "<p>{!r} is not a number.</p>\n".format(request.form["number1"])
         
         if user_case_num is not None:
-            ########
             result = pick_user_case(user_case_num)
             return '''
                 <html>

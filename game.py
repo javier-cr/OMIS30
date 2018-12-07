@@ -2,8 +2,6 @@
 # Date: December 6th, 2018
 # Purpose: Write code to run the popular game 'Deal or No Deal'
 
-
-
 import random
 import time
 
@@ -31,14 +29,11 @@ random.shuffle(listPrice) # shuffle case values, not nums
 combo = dict(zip(briefcases, listPrice)) # create dict with case nums, vals
 
 
-
 #############################################
 
 ###              Functions                ###
 
 #############################################
-
-
 
 def intro():
     # WELCOME
@@ -46,7 +41,6 @@ def intro():
 
 
 # Function in which user will choose the case to keep throughout the game
-
 def pick_user_case():
     global user_case_num, user_case_val
     user_case_num = input('\nWhich case would you like to select to be yours?\
@@ -61,10 +55,7 @@ def pick_user_case():
         pick_user_case()
 
 
-
-
 # Function that has user pick new cases to eliminate each round
-
 def pick_cases(cases_this_round):
     print('Your options are: ', combo.keys())
 
@@ -84,10 +75,7 @@ def pick_cases(cases_this_round):
             pick_cases(cases_this_round)
     
 
-
-
 # Function that shows the user the values inside the cases they eliminated    
-    
 def show_cases():
     print('\nYour personal case is Case #' + str(user_case_num) + ". Let's \
 open the cases you picked.\nThe cases you picked had the following values \
@@ -97,22 +85,14 @@ inside of them:\n")
         print ('Case #' + str(num) + ' had $' + str(val) + ' inside.')
 
 
-
-
-
 # Function that creates the banker's offer
-
 def offer():
     sum_of_values = sum(combo.values())
     banker_offer = round((sum_of_values/len(combo)),0)
     return banker_offer
 
 
-
-
-
 # Function that asks for the users "deal" or "no deal" decision
-
 def decision(): 
     print("\nThe Banker's offer is $" + str(offer()) + "\n") # banker offer
     
@@ -132,15 +112,9 @@ for playing.\n')
         decision()
 
 
-
-
-
-
-# Function that activates when only one case remains
-
-def finalCase(): #left for tomorrow
+# When the user is only able to choose 1 case at at time until 0 cases remain
+def finalCase():
     global cases_this_round
-    print('finalCase is in motion.')
 
     if len(combo) == 1:
         finalDecision()
@@ -159,17 +133,12 @@ def finalCase(): #left for tomorrow
         decision()
 
 
-
-
-
-
 # Function that asks for user's final decision on the last case
-
 def finalDecision():
     final_choice = input('You have made it to the last round. You must \
 either open your personal case or the only one left.\
- Your personal case is case #' + str(user_case_num) + ". \
- The only case left is " + str(combo.keys())+ ". \
+ Your personal case is Case #' + str(user_case_num) + ". \
+The only case left is " + str(combo.keys())+ ". \
 Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
 
     if final_choice == 'mine' or final_choice == 'Mine':
@@ -185,12 +154,7 @@ Enter 'mine' to keep your case or 'switch' to choose the final case.\n")
         finalDecision()
 
 
-
-
-
-
 # Function that prompts game to continue until only one case is left
-
 def keep_going():
     global cases_this_round
 
@@ -206,11 +170,7 @@ round.')
         decision()
 
 
-
-
-# Call all functions
-
-
+# Call all functions in order of desired gameplay
 intro()
 pick_user_case()
 pick_cases(cases_this_round)
