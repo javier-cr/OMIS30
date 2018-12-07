@@ -15,7 +15,7 @@ This game begins by creating two lists, one of briefcase numbers (1-26), and the
 
 We create a dictionary to keep track of cases that have been opened, and individual variables to keep track of which case the user has chosen to claim as their own, as well as the dollar value of this case.
 
-Each function of the game is broken up into a different function:\
+#####Each function of the game is broken up into a different function:\
 *intro()* - prints a welcome message\
 *pick_user_case()* - allows the user to set aside a case to be their own, to be opened at the conclusion of the game\
 *pick_cases* (with integer *cases_this_round* passed into this function - allows user to open other cases\ 
