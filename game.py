@@ -32,11 +32,6 @@ combo = dict(zip(briefcases, listPrice)) # create dict with case nums, vals
 
 
 
-
-
-
-
-
 #############################################
 
 ###              Functions                ###
