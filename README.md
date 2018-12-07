@@ -15,7 +15,8 @@ This game begins by creating two lists, one of briefcase numbers (1-26), and the
 
 We create a dictionary to keep track of cases that have been opened, and individual variables to keep track of which case the user has chosen to claim as their own, as well as the dollar value of this case.
 
-#####Each function of the game is broken up into a different function:\
+Each function of the game is broken up into a different function:\
+\
 *intro()* - prints a welcome message\
 *pick_user_case()* - allows the user to set aside a case to be their own, to be opened at the conclusion of the game\
 *pick_cases* (with integer *cases_this_round* passed into this function - allows user to open other cases\ 
@@ -28,4 +29,3 @@ We create a dictionary to keep track of cases that have been opened, and individ
 
 #### Known Limitations
 There is one thing to be careful of in the game. If you accidentally enter an invalid number or other invalid character while eliminating briefcases, you will be asked to enter a valid input, but if you have already chosen a briefcases to eliminate in that step, thos briefcases will remain eliminated, though you will still have to enter a brand new list of cases. This may sometimes result in an error ONLY if you make it to the final case. Otherwise, this should not be a problem unless multiple invalid inputs are entered.
-Got it, thanks!I like it!Thanks, I'll check it out.
