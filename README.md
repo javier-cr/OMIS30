@@ -20,7 +20,7 @@ Each function of the game is broken up into a different function:\
 \
 *intro()* - prints a welcome message\
 *pick_user_case()* - allows the user to set aside a case to be their own, to be opened at the conclusion of the game\
-*pick_cases* (with integer *cases_this_round* passed into this function - allows user to open other cases\ 
+*pick_cases* (with integer *cases_this_round* passed into this function - allows user to open other cases\
 *show_cases()* - shows the user all of the cases they have selected so far\
 *offer()* -  calculates the offer the banker will give\
 *decision* - allows the user to continue ('no deal') or end ('deal') the game\
