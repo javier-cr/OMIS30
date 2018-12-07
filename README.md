@@ -11,7 +11,7 @@ The app will begin by asking for the user to choose a case of the 26 cases prese
 Lots of work went into making sure this game ran as smoothly as possible. The authors spent a lot of time working on the dictionary for the briefcaces with values and creating code that would eliminate cases as they were chosen. 
 
 #### Technical Description
-This game begins by creating two lists, one of briefcase numbers (1-26, and the other of briefcase dollar values ($0.01-$1,000,000.00). We use the random library to shuffle only the dollar values of the cases, then pair these two lists together as a key:value pair within a dictionary.
+This game begins by creating two lists, one of briefcase numbers (1-26), and the other of briefcase dollar values ($0.01-$1,000,000.00). We use the random library to shuffle only the dollar values of the cases, then pair these two lists together as a key:value pair within a dictionary.
 
 We create a dictionary to keep track of cases that have been opened, and individual variables to keep track of which case the user has chosen to claim as their own, as well as the dollar value of this case.
 
